@@ -5,7 +5,7 @@ Welcome to my personal portfolio. I am currently learning web development and bu
 ## 🚀 About Me
 - 🔭 I’m currently working on my portfolio projects.
 - 🌱 I’m currently learning HTML, CSS, and basic programming.
-- 📫 How to reach me: [https://www.facebook.com/share/1F9f2PKdiT/mo dito]
+- 📫 How to reach me: [https://www.facebook.com/share/1F9f2PKdiT/]
 
 ## 💻 Skills
 - HTML
