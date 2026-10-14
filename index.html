@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        /* BACKGROUND RED & BLUE GLOW EFFECT (Katulad sa litrato) */
+        /* BACKGROUND RED & BLUE GLOW EFFECT */
         .bg-effects {
             position: fixed;
             top: 0;
@@ -31,8 +32,8 @@
             z-index: -1;
             pointer-events: none;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(0, 102, 255, 0.08) 0%, transparent 40%);
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0, 102, 255, 0.12) 0%, transparent 40%);
         }
 
         /* NAVBAR MAIN CONTAINER */
@@ -63,14 +64,15 @@
         .nav-logo {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #dc3545;
             text-decoration: none;
             letter-spacing: -0.5px;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .nav-logo:hover {
-            color: #dc3545; /* Pumupula kapag tinutok */
+            color: #dc3545;
+            text-shadow: 0 0 10px rgba(220, 53, 69, 0.6); /* Glow effect sa logo */
         }
 
         /* NAVIGATION MENU */
@@ -85,18 +87,18 @@
             position: relative;
         }
 
-        /* NAVBAR LINKS WITH EFFECTS */
+        /* NAVBAR LINKS - MAY GLOW EFFECT KAPAG HINOOVER */
         .nav-link {
             font-size: 0.9rem;
-            font-weight: 500;
-            color: #495057;
+            font-weight: 650;
+            color: #333333;
             text-decoration: none;
             padding: 6px 0;
             transition: all 0.3s ease;
             display: inline-block;
         }
 
-        /* Pulang guhit sa ilalim at pag-angat kapag hinover o pinindot */
+        /* Pulang guhit sa ilalim */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -104,13 +106,15 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: #dc3545; /* Kulay Red */
+            background-color: #dc3545;
             transition: width 0.3s ease-in-out;
         }
 
         .nav-link:hover, .nav-link:active {
             color: #dc3545;
-            transform: translateY(-2px); /* Gumagalaw paitaas nang konti */
+            transform: translateY(-2px);
+            /* 👉 DITO NALAGAY ANG GLOW EFFECT SA MGA LETRA */
+            text-shadow: 0 0 10px rgba(220, 53, 69, 0.6), 0 0 20px rgba(220, 53, 69, 0.3);
         }
 
         .nav-link:hover::after, .nav-link:active::after {
@@ -143,7 +147,7 @@
             background-color: #dc3545;
             color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.2);
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.5); /* Glow shadow sa button */
         }
 
         .btn-primary {
@@ -155,7 +159,7 @@
         .btn-primary:hover {
             background-color: #084e96;
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(10, 102, 194, 0.2);
+            box-shadow: 0 0 15px rgba(10, 102, 194, 0.5);
         }
 
         /* MOBILE RESPONSIVE DESIGN */
