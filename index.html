@@ -3,391 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bianca | UI/UX Designer & Developer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --card-bg: rgba(17, 24, 39, 0.85);
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --accent: #a855f7; /* Vibrant Purple */
-            --accent-glow: rgba(168, 85, 247, 0.6);
-            --cyan-glow: rgba(236, 72, 153, 0.6);
-            --border: rgba(75, 85, 99, 0.4);
-        }
+    <title>My BSIT Portfolio</title>
 
+    <!-- Pinag-isang CSS (Disenyo) sa loob ng index.html -->
+    <style>
+        /* RESET & BASIC STYLES */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 40px 20px;
-            position: relative;
-            overflow-x: hidden;
+            background-color: #f8f9fa;
+            color: #212529;
+            padding-top: 70px; /* Para hindi matakpan ng fixed navbar ang nilalaman */
         }
 
-        /* GUMAGALAW NA BACKGROUND PARTICLES / NETWORK EFFECT */
-        .bg-animation {
+        /* NAVBAR MAIN CONTAINER */
+        .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            height: 70px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
             height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 50% 30%, #1e1b4b 0%, #0b0f19 70%);
-        }
-
-        .particle {
-            position: absolute;
-            background: var(--accent);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float 8s infinite ease-in-out alternate;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px) scale(1); }
-            100% { transform: translateY(-40px) scale(1.2); }
-        }
-
-        .container {
-            max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Top Navbar style */
-        .nav-bar {
+            padding: 0 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: var(--card-bg);
-            padding: 16px 24px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            margin-bottom: 24px;
-            backdrop-filter: blur(10px);
         }
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            letter-spacing: 0.5px;
-        }
-
-        .logo span {
-            color: var(--accent);
-            text-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        /* Header / Hero Section */
-        header {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            margin-bottom: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
-
-        /* UMIILAW NA PROFILE PICTURE BORDER (Cyan/Electrical Blue Glow) */
-        .profile-container {
-            position: relative;
-            margin-bottom: 24px;
-        }
-
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow), 0 0 40px var(--cyan-glow);
-            animation: pulse-glow 3s infinite alternate;
-        }
-
-        @keyframes pulse-glow {
-            0% {
-                box-shadow: 0 0 15px var(--accent-glow), 0 0 30px var(--cyan-glow);
-                border-color: #a855f7;
-            }
-            100% {
-                box-shadow: 0 0 25px #ec4899, 0 0 50px var(--accent-glow);
-                border-color: #ec4899;
-            }
-        }
-
-        /* UMIILAW NA BADGE WITH GLOWING DOT */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: rgba(16, 185, 129, 0.15);
-            color: #34d399;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(52, 211, 153, 0.3);
-            box-shadow: 0 0 12px rgba(52, 211, 153, 0.2);
-        }
-
-        .glow-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #34d399;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #34d399;
-            animation: pulse-dot 1.5s infinite;
-        }
-
-        @keyframes pulse-dot {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 6px;
-        }
-
-        .subtitle {
-            font-size: 1.15rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 16px;
-            text-shadow: 0 0 12px var(--accent-glow);
-        }
-
-        .bio {
-            color: var(--text-muted);
-            font-size: 0.98rem;
-            max-width: 600px;
-        }
-
-        /* Sections */
-        section {
-            background: var(--card-bg);
-            padding: 32px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            margin-bottom: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        section:hover {
-            border-color: rgba(168, 85, 247, 0.4);
-            transform: translateY(-2px);
-        }
-
-        h2 {
+        /* LOGO */
+        .nav-logo {
             font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--text-main);
-            border-bottom: 2px solid rgba(75, 85, 99, 0.3);
-            padding-bottom: 8px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
-        /* Skills Tags */
-        .skills-grid {
+        /* NAVIGATION MENU */
+        .nav-menu {
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #495057;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #0d6efd;
+        }
+
+        /* BUTTONS (Resume & LinkedIn) */
+        .nav-actions {
+            display: flex;
             gap: 10px;
-        }
-
-        .skill-tag {
-            background-color: rgba(168, 85, 247, 0.1);
-            color: #d8b4fe;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background-color: var(--accent);
-            color: white;
-            box-shadow: 0 0 15px var(--accent-glow);
-            transform: translateY(-2px);
-        }
-
-        /* Project Cards */
-        .project-item {
-            padding: 18px;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            margin-bottom: 16px;
-            background: rgba(31, 41, 55, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .project-item:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-            transform: translateY(-2px);
-        }
-
-        .project-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            margin-bottom: 6px;
-        }
-
-        .project-desc {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Contact Buttons */
-        .contact-links {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
+            margin-left: 5px;
         }
 
         .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #a855f7, #ec4899);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 8px;
-            text-decoration: none;
+            padding: 6px 14px;
+            font-size: 0.85rem;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-            box-shadow: 0 0 25px var(--pink-glow);
-            transform: translateY(-2px);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
 
         .btn-outline {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-main);
-            box-shadow: none;
+            color: #0d6efd;
+            border: 1px solid #0d6efd;
+            background-color: transparent;
         }
 
         .btn-outline:hover {
-            border-color: var(--accent);
-            background: rgba(168, 85, 247, 0.1);
-            color: #d8b4fe;
-            box-shadow: 0 0 15px var(--accent-glow);
+            background-color: #0d6efd;
+            color: #ffffff;
         }
 
-        footer {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 40px;
+        .btn-primary {
+            color: #ffffff;
+            background-color: #0a66c2;
+            border: 1px solid #0a66c2;
+        }
+
+        .btn-primary:hover {
+            background-color: #084e96;
+        }
+
+        /* MOBILE RESPONSIVE DESIGN */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: #1a1a1a;
+        }
+
+        @media (max-width: 1100px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #ffffff;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+                padding: 24px 0;
+                gap: 15px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-actions {
+                margin-left: 0;
+                justify-content: center;
+                flex-direction: column;
+                width: 80%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Gumagalaw na Background Effect -->
-    <div class="bg-animation">
-        <div class="particle" style="width: 150px; height: 150px; top: 10%; left: 15%; animation-duration: 6s;"></div>
-        <div class="particle" style="width: 200px; height: 200px; top: 60%; right: 10%; animation-duration: 9s;"></div>
-        <div class="particle" style="width: 100px; height: 100px; bottom: 20%; left: 20%; animation-duration: 7s;"></div>
-    </div>
+    <!-- HTML NAVIGATION BAR -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="#home" class="nav-logo">MyPortfolio</a>
 
-    <div class="container">
-        <!-- Top Navbar -->
-        <div class="nav-bar">
-            <div class="logo">Bianca<span>.</span></div>
+        <!-- Menu Items -->
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About Me</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Technical Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Project Gallery</a></li>
+          <li class="nav-item"><a href="#ai-tools" class="nav-link">AI & Modern Tools</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+
+          <!-- Resume & LinkedIn Buttons -->
+          <li class="nav-item nav-actions">
+            <a href="#" target="_blank" class="btn btn-outline">Resume</a>
+            <a href="#" target="_blank" class="btn btn-primary">LinkedIn</a>
+          </li>
+        </ul>
+
+        <!-- Mobile Menu Hamburger Icon -->
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </div>
+      </div>
+    </nav>
 
-        <!-- Header / Hero -->
-        <header>
-            <div class="profile-container">
-                <img src="1791819077503.jpg" alt="Profile Picture" class="profile-img">
-            </div>
-            <span class="badge">
-                <span class="glow-dot"></span> Open to opportunities
-            </span>
-            <h1>Bianca</h1>
-            <div class="subtitle">UI/UX Designer & Developer</div>
-            <p class="bio">I am IT professional in UI/UX design and web development. I love creating visually appealing designs and building them into functional websites through code.</p>
-        </header>
-
-        <!-- About Me Section -->
-        <section>
-            <h2>About Me</h2>
-            <p class="bio" style="max-width: 100%;">
-                Hi! I'm Bianca, an IT professional passionate about web design and programming. I enjoy creating visually clean user interfaces and turning them into functional websites through code.
-            </p>
-        </section>
-
-        <!-- Skills Section -->
-        <section>
-            <h2>Skills & Tools</h2>
-            <div class="skills-grid">
-                <span class="skill-tag">HTML5 & CSS3</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Git & GitHub</span>
-                <span class="skill-tag">Digital Solutions Specialist</span>
-                <span class="skill-tag">Response web design</span>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section>
-            <h2>Featured Projects</h2>
-            
-            <div class="project-item">
-                <div class="project-title">Modern Dark Theme Portfolio</div>
-                <div class="project-desc">A responsive, glowing personal portfolio hosted live via GitHub Pages.</div>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">UI/UX Web Design & wireframing</div>
-                <div class="project-desc">Designed modern, user-friendly website layouts and interactive prototypes using Figma.</div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section>
-            <h2>Get In Touch</h2>
-            <p class="bio" style="margin-bottom: 20px; max-width: 100%;">Feel free to reach out for collaborations, projects, or professional opportunities!</p>
-            <div class="contact-links">
-                <a href="mailto:your-email@gmail.com" class="btn">Email Me</a>
-                <a href="https://github.com/sorebiancanicole26-beep" target="_blank" class="btn btn-outline">GitHub Profile</a>
-            </div>
-        </section>
-
-        <footer>
-            © 2026 Bianca. Powered by GitHub Pages.
-        </footer>
-    </div>
+    <!-- Dito mo na ilalagay ang mga susunod mong sections (About Me, Skills, atbp.) -->
 
 </body>
 </html>
