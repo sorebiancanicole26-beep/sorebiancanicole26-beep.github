@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My BSIT Portfolio</title>
+    <title>My BSIT Industry-Ready Portfolio</title>
 
     <style>
         /* RESET & BASIC STYLES */
@@ -12,7 +12,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth; /* Para smooth ang pag-scroll patungo sa seksyon kapag pinindot */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -159,15 +159,98 @@
             box-shadow: 0 0 15px rgba(10, 102, 194, 0.5);
         }
 
-        /* SECTIONS DESIGN (Laman ng bawat pinipindot) */
+        /* SECTIONS GENERAL STYLE */
         .section {
             min-height: 100vh;
-            padding: 100px 20px 60px 20px;
-            max-width: 1000px;
+            padding: 120px 20px 60px 20px;
+            max-width: 1100px;
             margin: 0 auto;
             border-bottom: 1px solid #dee2e6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
+        /* HOME / HERO SECTION STYLING */
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .highlight-name {
+            color: #dc3545;
+            text-shadow: 0 0 15px rgba(220, 53, 69, 0.3);
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0a66c2;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: #555555;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary-hero {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+        }
+
+        .btn-primary-hero:hover {
+            background-color: #b02a37;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
+        }
+
+        .btn-outline-hero {
+            background-color: transparent;
+            color: #333333;
+            border: 2px solid #ccc;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-hero:hover {
+            border-color: #dc3545;
+            color: #dc3545;
+            transform: translateY(-2px);
+        }
+
+        /* OTHER SECTIONS TITLE */
         .section h2 {
             font-size: 2.2rem;
             margin-bottom: 20px;
@@ -224,6 +307,10 @@
                 flex-direction: column;
                 width: 80%;
             }
+
+            .section h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -259,42 +346,52 @@
       </div>
     </nav>
 
-    <!-- MGA LAMAN NG BAWAT SEKSYON (NAKA-LINK SA NAVBAR) -->
-    
-    <!-- 1. Home Section -->
+    <!-- 1. HOME / HERO SECTION -->
     <section id="home" class="section">
-        <h2>Home / Welcome</h2>
-        <p>Hi there! I am an BSIT student showcasing my minimalist portfolio website featuring red and blue modern glowing effects.</p>
+        <div class="hero-content">
+            <span class="hero-badge">Datamex College of Saint Adeline • BSIT Portfolio</span>
+            <h1>Hi, I'm <span class="highlight-name">[Pangalan Mo]</span></h1>
+            <p class="hero-tagline">
+                WHAT I KNOW + WHAT I CAN DO + WHAT I HAVE BUILT + HOW I SOLVE PROBLEMS
+            </p>
+            <p class="hero-desc">
+                Welcome to my industry-ready professional portfolio website. Designed to demonstrate technical competencies in information technology, programming skills, and modern development workflows.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary-hero">View Projects</a>
+                <a href="#about" class="btn-outline-hero">About Me</a>
+            </div>
+        </div>
     </section>
 
-    <!-- 2. About Me Section -->
+    <!-- 2. ABOUT ME SECTION -->
     <section id="about" class="section">
         <h2>About Me</h2>
-        <p>Dito mo ilalagay ang kwento tungkol sa iyong sarili, ang iyong background sa Bachelor of Science in Information Technology, at mga layunin mo bilang developer.</p>
+        <p>Dito natin ilalagay ang iyong kwento bilang BSIT student, ang iyong mga layunin, at ang iyong litrato para mas maging personal ang portfolio mo.</p>
     </section>
 
-    <!-- 3. Technical Skills Section -->
+    <!-- 3. TECHNICAL SKILLS SECTION -->
     <section id="skills" class="section">
         <h2>Technical Skills</h2>
-        <p>Dito ilalagay ang mga natutunan mong programming languages, tools, at frameworks (tulad ng HTML, CSS, JavaScript, Git, atbp.).</p>
+        <p>Dito nakalista ang iyong mga kakayahan sa programming, database, networking, at iba pang IT competencies.</p>
     </section>
 
-    <!-- 4. Project Gallery Section -->
+    <!-- 4. PROJECT GALLERY SECTION -->
     <section id="projects" class="section">
         <h2>Project Gallery</h2>
-        <p>Dito ipapakita ang mga nagawa mong proyekto o sistema.</p>
+        <p>Dito ipapakita ang mga nagawa mong sistema at proyekto na nagpapatunay ng iyong kakayahan sa pag-develop.</p>
     </section>
 
-    <!-- 5. AI & Modern Tools Section -->
+    <!-- 5. AI & MODERN TOOLS SECTION -->
     <section id="ai-tools" class="section">
         <h2>AI & Modern Tools</h2>
-        <p>Dito ilalagay ang mga ginagamit mong makabagong AI tools para mapabilis ang iyong pag-develop.</p>
+        <p>Dito ilalagay ang responsableng paggamit ng mga makabagong AI tools at version control system tulad ng Git at GitHub.</p>
     </section>
 
-    <!-- 6. Contact Section -->
+    <!-- 6. CONTACT SECTION -->
     <section id="contact" class="section">
         <h2>Contact</h2>
-        <p>Dito makikita ang iyong email, social links, o mensahe kung paano ka makokontak.</p>
+        <p>Dito makikita kung paano ka makokontak para sa mga oportunidad o katanungan.</p>
     </section>
 
 </body>
