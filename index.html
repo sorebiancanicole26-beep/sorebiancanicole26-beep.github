@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +12,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth; /* Para smooth ang pag-scroll patungo sa seksyon kapag pinindot */
         }
 
         body {
@@ -71,8 +71,7 @@
         }
 
         .nav-logo:hover {
-            color: #dc3545;
-            text-shadow: 0 0 10px rgba(220, 53, 69, 0.6); /* Glow effect sa logo */
+            text-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
         }
 
         /* NAVIGATION MENU */
@@ -87,7 +86,7 @@
             position: relative;
         }
 
-        /* NAVBAR LINKS - MAY GLOW EFFECT KAPAG HINOOVER */
+        /* NAVBAR LINKS */
         .nav-link {
             font-size: 0.9rem;
             font-weight: 650;
@@ -98,7 +97,6 @@
             display: inline-block;
         }
 
-        /* Pulang guhit sa ilalim */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -113,7 +111,6 @@
         .nav-link:hover, .nav-link:active {
             color: #dc3545;
             transform: translateY(-2px);
-            /* 👉 DITO NALAGAY ANG GLOW EFFECT SA MGA LETRA */
             text-shadow: 0 0 10px rgba(220, 53, 69, 0.6), 0 0 20px rgba(220, 53, 69, 0.3);
         }
 
@@ -121,7 +118,7 @@
             width: 100%;
         }
 
-        /* BUTTONS (Resume & LinkedIn) */
+        /* BUTTONS */
         .nav-actions {
             display: flex;
             gap: 10px;
@@ -147,7 +144,7 @@
             background-color: #dc3545;
             color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(220, 53, 69, 0.5); /* Glow shadow sa button */
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.5);
         }
 
         .btn-primary {
@@ -160,6 +157,27 @@
             background-color: #084e96;
             transform: translateY(-2px);
             box-shadow: 0 0 15px rgba(10, 102, 194, 0.5);
+        }
+
+        /* SECTIONS DESIGN (Laman ng bawat pinipindot) */
+        .section {
+            min-height: 100vh;
+            padding: 100px 20px 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #555555;
+            line-height: 1.6;
         }
 
         /* MOBILE RESPONSIVE DESIGN */
@@ -214,13 +232,11 @@
     <!-- Background Glow Effects -->
     <div class="bg-effects"></div>
 
-    <!-- HTML NAVIGATION BAR -->
+    <!-- NAVIGATION BAR -->
     <nav class="navbar">
       <div class="nav-container">
-        <!-- Logo -->
         <a href="#home" class="nav-logo">MyPortfolio</a>
 
-        <!-- Menu Items -->
         <ul class="nav-menu">
           <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="#about" class="nav-link">About Me</a></li>
@@ -229,14 +245,12 @@
           <li class="nav-item"><a href="#ai-tools" class="nav-link">AI & Modern Tools</a></li>
           <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
 
-          <!-- Resume & LinkedIn Buttons -->
           <li class="nav-item nav-actions">
             <a href="#" target="_blank" class="btn btn-outline">Resume</a>
             <a href="#" target="_blank" class="btn btn-primary">LinkedIn</a>
           </li>
         </ul>
 
-        <!-- Mobile Menu Hamburger Icon -->
         <div class="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -244,6 +258,44 @@
         </div>
       </div>
     </nav>
+
+    <!-- MGA LAMAN NG BAWAT SEKSYON (NAKA-LINK SA NAVBAR) -->
+    
+    <!-- 1. Home Section -->
+    <section id="home" class="section">
+        <h2>Home / Welcome</h2>
+        <p>Hi there! I am an BSIT student showcasing my minimalist portfolio website featuring red and blue modern glowing effects.</p>
+    </section>
+
+    <!-- 2. About Me Section -->
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>Dito mo ilalagay ang kwento tungkol sa iyong sarili, ang iyong background sa Bachelor of Science in Information Technology, at mga layunin mo bilang developer.</p>
+    </section>
+
+    <!-- 3. Technical Skills Section -->
+    <section id="skills" class="section">
+        <h2>Technical Skills</h2>
+        <p>Dito ilalagay ang mga natutunan mong programming languages, tools, at frameworks (tulad ng HTML, CSS, JavaScript, Git, atbp.).</p>
+    </section>
+
+    <!-- 4. Project Gallery Section -->
+    <section id="projects" class="section">
+        <h2>Project Gallery</h2>
+        <p>Dito ipapakita ang mga nagawa mong proyekto o sistema.</p>
+    </section>
+
+    <!-- 5. AI & Modern Tools Section -->
+    <section id="ai-tools" class="section">
+        <h2>AI & Modern Tools</h2>
+        <p>Dito ilalagay ang mga ginagamit mong makabagong AI tools para mapabilis ang iyong pag-develop.</p>
+    </section>
+
+    <!-- 6. Contact Section -->
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Dito makikita ang iyong email, social links, o mensahe kung paano ka makokontak.</p>
+    </section>
 
 </body>
 </html>
