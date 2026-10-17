@@ -9,8 +9,8 @@ body{background:#f8f9fa;color:#212529;padding-top:70px;overflow-x:hidden}
 .navbar{position:fixed;top:0;left:0;width:100%;height:70px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid #e9ecef;display:flex;justify-content:space-between;align-items:center;padding:0 24px;z-index:1000}
 .nav-logo{font-size:1.3rem;font-weight:700;color:#dc3545;text-decoration:none;transition:.3s}
 .nav-logo:hover{text-shadow:0 0 12px rgba(220,53,69,0.8);transform:scale(1.03)}
-.nav-menu{display:flex;align-items:center;gap:15px;list-style:none}
-.nav-link{font-size:0.9rem;font-weight:650;color:#333;text-decoration:none;padding:6px 0;position:relative;transition:.2s}
+.nav-menu{display:flex;align-items:center;gap:12px;list-style:none}
+.nav-link{font-size:0.85rem;font-weight:650;color:#333;text-decoration:none;padding:6px 0;position:relative;transition:.2s}
 .nav-link::after{content:'';position:absolute;width:0;height:2px;bottom:0;left:0;background:#dc3545;box-shadow:0 0 8px #dc3545;transition:.3s}
 .nav-link:hover,.nav-link:focus{color:#dc3545;text-shadow:0 0 10px rgba(220,53,69,0.6)}
 .nav-link:hover::after{width:100%}
@@ -19,7 +19,7 @@ body{background:#f8f9fa;color:#212529;padding-top:70px;overflow-x:hidden}
 .btn-outline:hover{background:#dc3545;color:#fff;box-shadow:0 0 15px rgba(220,53,69,0.6)}
 .btn-primary{color:#fff;background:#0a66c2;border:1px solid #0a66c2}
 .btn-primary:hover{background:#084e96;box-shadow:0 0 15px rgba(10,102,194,0.6)}
-.section{min-height:100vh;padding:120px 20px 60px 20px;max-width:1100px;margin:0 auto;border-bottom:1px solid #dee2e6;display:flex;flex-direction:column;justify-content:center}
+.section{min-height:80vh;padding:100px 20px 60px 20px;max-width:1100px;margin:0 auto;border-bottom:1px solid #dee2e6;display:flex;flex-direction:column;justify-content:center}
 .hero-container{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
 .hero-text{flex:1;min-width:280px}
 .profile-pic{width:240px;height:240px;border-radius:50%;object-fit:cover;border:4px solid #dc3545;box-shadow:0 0 25px rgba(220,53,69,0.4),0 0 15px rgba(0,102,255,0.3);transition:.3s}
@@ -30,13 +30,14 @@ h1{font-size:3rem;font-weight:800;color:#1a1a1a;margin-bottom:15px}
 h2{font-size:2.2rem;margin-bottom:8px;color:#1a1a1a;transition:.3s}
 h2:hover{color:#dc3545;text-shadow:0 0 15px rgba(220,53,69,0.4)}
 .section-intro{font-size:1.05rem;color:#0a66c2;font-weight:600;margin-bottom:20px;line-height:1.5}
-.glow-card{background:#fff;padding:24px;border-radius:10px;border:1px solid #e9ecef;box-shadow:0 4px 12px rgba(0,0,0,0.04);transition:.3s;cursor:pointer}
+.glow-card{background:#fff;padding:24px;border-radius:10px;border:1px solid #e9ecef;box-shadow:0 4px 12px rgba(0,0,0,0.04);transition:.3s;margin-bottom:15px}
 .glow-card:hover{transform:translateY(-4px);border-color:rgba(220,53,69,0.4);box-shadow:0 8px 25px rgba(220,53,69,0.15),0 0 15px rgba(0,102,255,0.1)}
-.hero-btns{display:flex;gap:15px;margin-top:20px}
+.hero-btns{display:flex;gap:15px;margin-top:20px;flex-wrap:wrap}
 .btn-p{background:#dc3545;color:#fff;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:600;box-shadow:0 4px 12px rgba(220,53,69,0.3);transition:.2s}
 .btn-p:hover{background:#b02a37;box-shadow:0 0 20px rgba(220,53,69,0.6)}
 .btn-o{background:0 0;color:#333;border:2px solid #ccc;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:600;transition:.2s}
 .btn-o:hover{border-color:#dc3545;color:#dc3545;box-shadow:0 0 15px rgba(220,53,69,0.4)}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:10px}
 </style>
 </head>
 <body>
@@ -47,19 +48,21 @@ h2:hover{color:#dc3545;text-shadow:0 0 15px rgba(220,53,69,0.4)}
 <a href="#home" class="nav-logo">MyPortfolio</a>
 <ul class="nav-menu">
 <li><a href="#home" class="nav-link">Home</a></li>
-<li><a href="#about" class="nav-link">About</a></li>
+<li><a href="#profile" class="nav-link">Profile</a></li>
 <li><a href="#skills" class="nav-link">Skills</a></li>
 <li><a href="#projects" class="nav-link">Projects</a></li>
-<li><a href="#ai-tools" class="nav-link">AI Tools</a></li>
+<li><a href="#problem-solving" class="nav-link">Problem-Solving</a></li>
+<li><a href="#employability" class="nav-link">Employability</a></li>
+<li><a href="#reflection" class="nav-link">Reflection</a></li>
 <li><a href="#contact" class="nav-link">Contact</a></li>
-<li style="display:flex;gap:10px;margin-left:10px">
+<li style="display:flex;gap:8px;margin-left:10px">
 <a href="Blue Modern Professional Resume.pdf" target="_blank" class="btn btn-outline">Resume</a>
 <a href="https://www.linkedin.com" target="_blank" class="btn btn-primary">LinkedIn</a>
 </li>
 </ul>
 </nav>
 
-<!-- 1. HOME / HERO SECTION -->
+<!-- HOME SECTION -->
 <section id="home" class="section">
 <div class="hero-container">
 <div class="hero-text">
@@ -68,8 +71,8 @@ h2:hover{color:#dc3545;text-shadow:0 0 15px rgba(220,53,69,0.4)}
 <p style="font-size:1.1rem;font-weight:700;color:#0a66c2;margin-bottom:20px">WHAT I KNOW + WHAT I CAN DO + WHAT I HAVE BUILT + HOW I SOLVE PROBLEMS</p>
 <p style="font-size:1.15rem;color:#555;line-height:1.6;max-width:800px;margin-bottom:20px">Welcome to my industry-ready professional portfolio website designed to showcase full-stack IT capabilities, responsive UI/UX designs, and modern web development principles.</p>
 <div class="hero-btns">
-<a href="#projects" class="btn-p">View Projects</a>
-<a href="#about" class="btn-o">About Me</a>
+<a href="#projects" class="btn-p">VIEW MY PROJECTS</a>
+<a href="Blue Modern Professional Resume.pdf" target="_blank" class="btn-o">DOWNLOAD RESUME</a>
 </div>
 </div>
 <div>
@@ -78,51 +81,108 @@ h2:hover{color:#dc3545;text-shadow:0 0 15px rgba(220,53,69,0.4)}
 </div>
 </section>
 
-<!-- 2. ABOUT ME SECTION -->
-<section id="about" class="section">
-<h2>About Me</h2>
-<p class="section-intro">Get to know my background, academic journey in Information Technology, and core passion for tech innovation.</p>
+<!-- 1. PROFESSIONAL PROFILE / ABOUT ME -->
+<section id="profile" class="section">
+<h2>1. Professional Profile</h2>
+<p class="section-intro">BSIT background, career goals, technical strengths, and professional values.</p>
 <div class="glow-card">
-<p>🔭 <strong>Current Focus:</strong> Building an industry-ready personal portfolio website showcasing full-stack IT capabilities.<br><br>🌱 <strong>Learning & Growth:</strong> Actively advancing skills in Web Development, Database Systems (SQL), Networking, Cybersecurity, and AI Tools.<br><br>💡 <strong>Passion:</strong> Transforming creative UI/UX concepts into clean, functional, and responsive web applications.</p>
+<p style="line-height:1.7;color:#444;">
+I am an Information Technology student at Datamex College of Saint Adeline specializing in Web Development and UI/UX Design. My technical background spans front-end site structuring, modern CSS layout design, database concepts, and operating system configuration. I focus on turning complex wireframes into responsive, user-centric web applications while following clean code practices. Beyond web development, I am continuously broadening my skill set across database queries, networking, cybersecurity fundamentals, and AI-assisted workflows to stay competitive in the fast-evolving tech industry.
+<br><br>
+My career goal is to secure a role as a Front-End Web Developer or UI/UX Designer, where I can build intuitive digital experiences that combine performance with aesthetic design. I value continuous learning, technical discipline, adaptability, and ethical AI utilization in software development.
+</p>
 </div>
 </section>
 
-<!-- 3. TECHNICAL SKILLS SECTION -->
+<!-- 2. TECHNICAL SKILLS -->
 <section id="skills" class="section">
-<h2>Technical Skills</h2>
-<p class="section-intro">Here is a brief overview of my technical abilities, core programming proficiencies, and design tools I specialize in as an IT student.</p>
+<h2>2. Technical Skills</h2>
+<p class="section-intro">Core technical proficiencies and categorized capabilities.</p>
+<div class="grid-2">
 <div class="glow-card">
-<p>🎨 <strong>Design & Web Development</strong><br>• UI/UX Design & Wireframing (Figma)<br>• HTML5, CSS3, & Modern Responsive Layouts<br>• JavaScript & Front-End Web Development<br>• Git Version Control & GitHub Pages Deployment</p>
+<h3 style="color:#dc3545;margin-bottom:10px">Programming & Web Development</h3>
+<p style="color:#555;line-height:1.6">• HTML5, CSS3, JavaScript<br>• Responsive Design & Flexbox/Grid<br>• Figma UI/UX & Wireframing<br>• Single-Page Web Applications</p>
+</div>
+<div class="glow-card">
+<h3 style="color:#0a66c2;margin-bottom:10px">Database & Tools</h3>
+<p style="color:#555;line-height:1.6">• Relational Database Concepts & SQL<br>• Git & GitHub Pages Deployment<br>• Windows Registry & OS Configuration<br>• AI-Assisted Front-End Workflows</p>
+</div>
 </div>
 </section>
 
-<!-- 4. PROJECT GALLERY SECTION -->
+<!-- 3. PROJECTS -->
 <section id="projects" class="section">
-<h2>Project Gallery</h2>
-<p class="section-intro">A showcase of projects demonstrating my hands-on technical capabilities, creative wireframing, and problem-solving skills.</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:10px">
-<div class="glow-card"><h3 style="color:#dc3545;margin-bottom:10px">BSIT Industry-Ready Portfolio</h3><p style="color:#555">A single-page professional portfolio website featuring responsive design, red and blue accent themes, and hosted on GitHub Pages.</p></div>
-<div class="glow-card"><h3 style="color:#0a66c2;margin-bottom:10px">UI/UX Wireframing & Design</h3><p style="color:#555">Projects focused on layout structuring, minimalist light themes, Figma wireframing, and professional color scheme selection.</p></div>
+<h2>3. Projects</h2>
+<p class="section-intro">Demonstrating practical software development and web applications.</p>
+<div class="grid-2">
+<div class="glow-card">
+<h3 style="color:#dc3545;margin-bottom:10px">BSIT Industry-Ready Portfolio</h3>
+<p style="color:#555;line-height:1.6;margin-bottom:12px">A single-page professional portfolio website featuring responsive design, red and blue accent themes, and hosted on GitHub Pages.</p>
+<span style="font-size:0.85rem;background:#e9ecef;padding:4px 8px;border-radius:4px;font-weight:600">HTML / CSS / GitHub Pages</span>
+</div>
+<div class="glow-card">
+<h3 style="color:#0a66c2;margin-bottom:10px">UI/UX Wireframing & Prototyping</h3>
+<p style="color:#555;line-height:1.6;margin-bottom:12px">Interface prototypes developed in Figma focusing on visual hierarchy, accessibility, and modern minimalist design systems.</p>
+<span style="font-size:0.85rem;background:#e9ecef;padding:4px 8px;border-radius:4px;font-weight:600">Figma / UI Design</span>
+</div>
 </div>
 </section>
 
-<!-- 5. AI & MODERN TOOLS SECTION -->
-<section id="ai-tools" class="section">
-<h2>AI & Modern Tools</h2>
-<p class="section-intro">An introduction to modern workflows and AI-assisted tools I utilize to increase development productivity and code quality.</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:10px">
-<div class="glow-card"><h3 style="color:#dc3545;margin-bottom:10px">AI-Assisted Development</h3><p style="color:#555">Responsible use of AI tools to optimize front-end structure, CSS styling, and clean HTML code generation.</p></div>
-<div class="glow-card"><h3 style="color:#0a66c2;margin-bottom:10px">Git & GitHub Version Control</h3><p style="color:#555">Utilizing Git repositories and GitHub Pages for efficient version control and seamless web deployment.</p></div>
+<!-- 4. PROBLEM-SOLVING -->
+<section id="problem-solving" class="section">
+<h2>4. Problem-Solving</h2>
+<p class="section-intro">Real-world technical troubleshooting and analytical problem resolution.</p>
+<div class="glow-card">
+<h3 style="color:#dc3545;margin-bottom:10px">Case Study: Resolving Windows Setup Loop via Registry</h3>
+<p style="color:#555;line-height:1.6">
+<strong>Issue:</strong> Encountered a persistent system configuration error loop during an operating system reinstallation on an MSI laptop.<br>
+<strong>Resolution:</strong> Utilized Command Prompt at setup to launch the Windows Registry Editor (`regedit`), navigated to `ChildCompletion`, modified the setup execution status value, and cleared the boot cycle error to complete setup successfully.
+</p>
 </div>
 </section>
 
-<!-- 6. CONTACT SECTION -->
+<!-- 5. EMPLOYABILITY & CERTIFICATES -->
+<section id="employability" class="section">
+<h2>5. Employability & Achievements</h2>
+<p class="section-intro">Professional readiness assets, career materials, and achievements.</p>
+<div class="grid-2">
+<div class="glow-card">
+<h3 style="color:#0a66c2;margin-bottom:10px">Career & Profile Assets</h3>
+<p style="color:#555;line-height:1.6">• 1-Page Professional Resume (PDF)<br>• Verified LinkedIn Student Profile<br>• Public GitHub Technical Evidence Repository</p>
+</div>
+<div class="glow-card">
+<h3 style="color:#dc3545;margin-bottom:10px">Certificates & Achievements</h3>
+<p style="color:#555;line-height:1.6">• Academic Coursework in Systems Thinking<br">• Front-End Web Development Projects<br">• Professional Portfolio Presentation</p>
+</div>
+</div>
+</section>
+
+<!-- 6. REFLECTION -->
+<section id="reflection" class="section">
+<h2>6. Reflection</h2>
+<p class="section-intro">Key takeaways from the BSIT program and portfolio development process.</p>
+<div class="glow-card">
+<p style="line-height:1.7;color:#444;">
+Building this industry-ready portfolio allowed me to consolidate the core competencies acquired throughout my BSIT program at Datamex College of Saint Adeline. Connecting initial wireframing in Figma to front-end implementation, Git version control, and GitHub Pages hosting reinforced the importance of structured development. Integrating troubleshooting experiences into technical portfolio evidence highlighted the role of analytical problem-solving alongside core programming skills.
+</p>
+</div>
+</section>
+
+<!-- 7. GITHUB & CONTACT -->
 <section id="contact" class="section">
-<h2>Contact</h2>
-<p class="section-intro">Feel free to connect or reach out for professional inquiries, academic collaborations, and project opportunities.</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:10px">
-<div class="glow-card" style="text-align:center"><h3 style="color:#24292e;margin-bottom:8px">GitHub</h3><a href="https://github.com" target="_blank" style="display:inline-block;padding:8px 16px;background:#24292e;color:#fff;border-radius:6px;text-decoration:none;font-size:0.85rem;font-weight:600">View GitHub</a></div>
-<div class="glow-card" style="text-align:center"><h3 style="color:#0a66c2;margin-bottom:8px">LinkedIn</h3><a href="https://www.linkedin.com" target="_blank" style="display:inline-block;padding:8px 16px;background:#0a66c2;color:#fff;border-radius:6px;text-decoration:none;font-size:0.85rem;font-weight:600">Visit LinkedIn</a></div>
+<h2>7. GitHub & Contact</h2>
+<p class="section-intro">Get in touch or view technical repositories.</p>
+<div class="grid-2">
+<div class="glow-card" style="text-align:center">
+<h3 style="color:#24292e;margin-bottom:8px">GitHub Repository</h3>
+<p style="color:#555;font-size:0.9rem;margin-bottom:12px">Explore code repositories and project evidence.</p>
+<a href="https://github.com" target="_blank" style="display:inline-block;padding:8px 16px;background:#24292e;color:#fff;border-radius:6px;text-decoration:none;font-size:0.85rem;font-weight:600">View GitHub</a>
+</div>
+<div class="glow-card" style="text-align:center">
+<h3 style="color:#0a66c2;margin-bottom:8px">LinkedIn Profile</h3>
+<p style="color:#555;font-size:0.9rem;margin-bottom:12px">Connect professionally on LinkedIn.</p>
+<a href="https://www.linkedin.com" target="_blank" style="display:inline-block;padding:8px 16px;background:#0a66c2;color:#fff;border-radius:6px;text-decoration:none;font-size:0.85rem;font-weight:600">Visit LinkedIn</a>
+</div>
 </div>
 </section>
 
