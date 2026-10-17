@@ -1,6 +1,6 @@
 💻 BSIT Professional Portfolio — Bianca Nicole Sore
 
-Welcome to my official Information Technology portfolio repository! This project serves as an interactive showcase of my academic projects, technical skills, problem-solving capabilities, and readiness for the IT industry as a BSIT student at Datamex College of Saint Adeline.
+Welcome to my official Information Technology portfolio repository! This project serves as an interactive showcase of my academic projects, technical skills, problem-solving capabilities, and readiness for the IT industry as a BSIT student at "Datamex College of Saint Adeline".
 
 👤 About Me
 I am a motivated "Bachelor of Science in Information Technology (BSIT)" student at Datamex College of Saint Adeline. My focus centers on front-end web development, UI/UX design, database management, and basic network system troubleshooting.
