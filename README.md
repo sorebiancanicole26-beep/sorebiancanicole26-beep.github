@@ -13,9 +13,9 @@ I am a motivated "Bachelor of Science in Information Technology (BSIT)" student 
 - Deployment: Git & GitHub Pages
 
 📁 Repository Files
-- [`index.html`] — Main website code
-- [`Blue Modern Professional Resume (1).pdf`] — (./Blue%20Modern%20Professional%20Resume%20%281%29.pdf) — Professional Resume
-- [`1791819077503.jpg`] — Profile picture asset
+- `index.html` — Main website code
+- `Blue Modern Professional Resume (1).pdf` — Professional Resume
+- `1791819077503.jpg` — Profile picture asset
 
 🌐 Live Portfolio
 👉 [View My Portfolio Site](https://sorebiancanicole26-beep.github.io)
