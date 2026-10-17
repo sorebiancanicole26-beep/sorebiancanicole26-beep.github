@@ -1,9 +1,22 @@
-💻 BSIT Professional Portfolio — Bianca Nicole SoreWelcome to my official Information Technology portfolio repository! This project serves as an interactive showcase of my academic projects, technical skills, problem-solving capabilities, and readiness for the IT industry as a BSIT student at Datamex College of Saint Adeline.📌 Table of ContentsAbout MeKey Features & SectionsTechnical Stack & ProficienciesFeatured ProjectsLive Portfolio DemoRepository File StructureHow to Run LocallyContact & Professional Links👤 About MeI am a motivated Bachelor of Science in Information Technology (BSIT) student at Datamex College of Saint Adeline. My focus centers on front-end web development, UI/UX design, database management, and basic network system troubleshooting.🚀 Key Features & SectionsThe portfolio website features a modern, clean, light-themed interface with red and blue glowing accents and structured navigation covering all required academic sections:Header & Navigation: Sticky blur navbar with glowing hover indicators and quick links to LinkedIn and Resume.Hero Section: Personal overview, call-to-action buttons, and profile image.1. Professional Profile: Career goals, background, and professional IT values.2. Technical Skills: Categorized breakdown of programming languages, design tools, and core personal traits.3. Academic Projects: Interactive project cards detailing web development, SQL database, network troubleshooting, and UI/UX design.4. Problem-Solving Case: Real-world troubleshooting experience resolving system setup and OS installation issues.5. Employability & Education: Academic history at Datamex College of Saint Adeline alongside key professional assets.6. Reflection: Academic takeaways on connecting theoretical IT concepts with practical web deployment.7. GitHub & Contact: Quick links for professional inquiries and code review.🛠️ Technical Stack & ProficienciesFront-End Development: HTML5, CSS3, JavaScript (ES6+)Design & Wireframing: UI/UX Design, Responsive Layouts, Figma ConceptsDatabase & Systems: SQL, Relational Database Schemas, Windows OS Configuration & System TroubleshootingTools & Deployment: Git, GitHub Pages, Web Browsers📂 Featured ProjectsProject TitleDescriptionTechnologiesBSIT Personal PortfolioResponsive single-page website deployed on GitHub Pages showcasing academic work and technical growth.HTML, CSS, JavaScriptDatabase Management & SQLCreation and querying of relational schemas, performing standard CRUD operations.SQL, Database SystemsNetwork & OS TroubleshootingOperating system setup, registry tweaks, command-line usage, and PC hardware configuration.Windows OS, CLI, NetworkingUI/UX & WireframingClean layout design, navigation structuring, and interactive visual elements.Figma, Wireframing🌐 Live Portfolio DemoYou can view the live site hosted via GitHub Pages here:👉 Bianca Nicole's BSIT Portfolio📁 Repository File Structuresorebiancanicole26-beep/
-│
-├── index.html                           # Main HTML5 structure with styled sections
-├── 1791819077503.jpg                    # Profile picture asset
-├── Blue Modern Professional Resume (1).pdf # Resume PDF document
-└── README.md                            # Documentation file
-💻 How to Run LocallyClone the Repository:git clone https://github.com/sorebiancanicole26-beep/sorebiancanicole26-beep.github.io.git
-Navigate into the Project Folder:cd sorebiancanicole26-beep.github.io
-Open the Website:Double-click index.html to open it in your web browser, or use Live Server in VS Code.📬 Contact & Professional LinksEmail: sorebiancanicole26@gmail.comLocation: Samuel St., Manuyo Dos, Las Piñas CityLinkedIn: Bianca Nicole on LinkedInGitHub Repository: sorebiancanicole26-beep Repository© 2026 Bianca Nicole Sore — BSIT Portfolio
+💻 BSIT Professional Portfolio — Bianca Nicole Sore
+
+Welcome to my official Information Technology portfolio repository! This project serves as an interactive showcase of my academic projects, technical skills, problem-solving capabilities, and readiness for the IT industry as a BSIT student at Datamex College of Saint Adeline.
+
+👤 About Me
+I am a motivated "Bachelor of Science in Information Technology (BSIT)" student at Datamex College of Saint Adeline. My focus centers on front-end web development, UI/UX design, database management, and basic network system troubleshooting.
+
+🛠️ Technical Stack
+- Front-End Development: HTML5, CSS3, JavaScript
+- Design & Wireframing: UI/UX Design, Figma Concepts
+- Database & Systems: SQL, Relational Database Schemas, Windows OS Configuration & Troubleshooting
+- Deployment: Git & GitHub Pages
+
+📁 Repository Files
+- `index.html` — Main website code
+- `Blue Modern Professional Resume (1).pdf` — Professional Resume
+- `1791819077503.jpg` — Profile picture asset
+
+🌐 Live Portfolio
+👉 [View My Portfolio Site](https://sorebiancanicole26-beep.github.io)
+
+© 2026 Bianca Nicole Sore — BSIT Portfolio
