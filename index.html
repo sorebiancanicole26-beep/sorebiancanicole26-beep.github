@@ -1038,6 +1038,107 @@ I am ready because my BSIT training has equipped me with fundamental technical s
 </div>
 </section>
 
+<!-- TROUBLESHOOTING CASE & AI LOG SECTION -->
+<section id="case-and-ai-log" class="section">
+  <h2>Troubleshooting Case & AI Usage Log</h2>
+
+  <style>
+    .case-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-left: 4px solid #dc3545;
+    }
+    .case-card h3 { color: #333; margin-bottom: 12px; font-size: 1.1rem; }
+    .case-card p { color: #555; line-height: 1.6; font-size: 0.9rem; margin-bottom: 8px; }
+    .case-card ol { margin-left: 20px; color: #555; font-size: 0.9rem; }
+    
+    .ai-table-container {
+      width: 100%;
+      overflow-x: auto;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .ai-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+    .ai-table th {
+      background-color: #f8f9fa;
+      color: #333;
+      padding: 12px 14px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .ai-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #edf2f7;
+      color: #555;
+    }
+  </style>
+
+  <!-- TROUBLESHOOTING CASE -->
+  <div class="case-card">
+    <h3>🛠️ Troubleshooting Case #01: Windows 11 Installation Loop</h3>
+    <p><strong>Problem:</strong> Persistent setup error loop during clean Windows 11 OS reinstallation on an MSI laptop.</p>
+    <p><strong>Possible Causes:</strong> Corrupted execution state flags under the Windows Registry configuration during setup.</p>
+    <p><strong>Diagnostic Procedure:</strong></p>
+    <ol>
+      <li>Opened Command Prompt during setup using <code>Shift + F10</code>.</li>
+      <li>Launched Registry Editor by typing <code>regedit</code>.</li>
+      <li>Navigated to <code>HKLM\SYSTEM\Setup\Status\ChildCompletion</code>.</li>
+      <li>Identified <code>setup.exe</code> DWORD value improperly set to <code>1</code>.</li>
+    </ol>
+    <p><strong>Solution:</strong> Modified <code>setup.exe</code> DWORD value to <code>3</code> and restarted via CLI using <code>shutdown /r /t 0</code>.</p>
+    <p><strong>Lesson Learned:</strong> Understanding low-level registry keys and CLI tools is essential for resolving system boot errors independently.</p>
+  </div>
+
+  <!-- AI USAGE LOG TEMPLATE -->
+  <h3>🤖 AI Usage Log</h3>
+  <div class="ai-table-container">
+    <table class="ai-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Task</th>
+          <th>AI Assistance</th>
+          <th>My Verification / Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Oct 15, 2026</strong></td>
+          <td>HTML Portfolio Theme</td>
+          <td>Generated base CSS layout and glowing red/blue theme styles</td>
+          <td>Verified code structure, adjusted color hex values, and ensured responsive design</td>
+        </tr>
+        <tr>
+          <td><strong>Oct 18, 2026</strong></td>
+          <td>CLI Terminal Simulator</td>
+          <td>Drafted interactive CLI terminal JavaScript logic</td>
+          <td>Tested commands (<code>help</code>, <code>skills</code>, <code>clear</code>) and set hostname to <code>BIANCA-MSI-LAPTOP</code></td>
+        </tr>
+        <tr>
+          <td><strong>Oct 19, 2026</strong></td>
+          <td>Wi-Fi Analytics Dashboard</td>
+          <td>Formatted dataset tables and Pearson correlation text (r = -0.748)</td>
+          <td>Double-checked RSSI values against Excel dataset to ensure 100% data accuracy</td>
+        </tr>
+        <tr>
+          <td><strong>Oct 20, 2026</strong></td>
+          <td>GitHub Pages Link Fix</td>
+          <td>Provided troubleshooting guidance for relative file paths</td>
+          <td>Reorganized root repository structure to eliminate 404 errors</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   &copy; 2026 Bianca Nicole Sore &bull; BSIT Industry-Ready Portfolio
