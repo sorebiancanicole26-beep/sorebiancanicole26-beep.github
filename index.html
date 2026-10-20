@@ -270,6 +270,410 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
   </div>
 </section>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLI Terminal Simulator - Bianca Nicole Portfolio</title>
+    <!-- Tailwind CSS for modern responsive utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#dc3545',
+                        brandBlue: '#0a66c2',
+                        brandBlueHover: '#0d6efd',
+                    },
+                    fontFamily: {
+                        mono: ['Fira Code', 'Consolas', 'Courier New', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Red/Blue Glow Custom Styles */
+        .terminal-glow-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid rgba(10, 102, 194, 0.2);
+            box-shadow: 0 10px 25px -5px rgba(10, 102, 194, 0.15), 
+                        0 8px 10px -6px rgba(220, 53, 69, 0.1);
+            transition: all 0.3s ease;
+        }
+        .terminal-glow-card:hover {
+            box-shadow: 0 14px 30px -5px rgba(10, 102, 194, 0.25), 
+                        0 10px 12px -5px rgba(220, 53, 69, 0.18);
+        }
+        
+        /* Terminal Custom Scrollbar */
+        .terminal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+        .terminal-body::-webkit-scrollbar-track {
+            background: #0f172a;
+            border-bottom-right-radius: 8px;
+        }
+        .terminal-body::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        .terminal-body::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Pulsing Terminal Cursor */
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.1em;
+            background-color: #38bdf8;
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        /* Button Glow Accent */
+        .btn-glow {
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .btn-glow:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(10, 102, 194, 0.2);
+        }
+        .btn-glow:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen p-4 sm:p-6 lg:p-10 flex flex-col items-center justify-center">
+
+    <!-- MAIN TERMINAL CONTAINER CONTAINER CARD -->
+    <div class="w-full max-w-4xl terminal-glow-card p-4 sm:p-6 my-auto">
+        
+        <!-- SECTION TITLE & INTRO -->
+        <div class="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+            <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-[#dc3545] inline-block shadow-[0_0_8px_#dc3545]"></span>
+                    Interactive CLI Terminal
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                    Simulated Command Prompt for system diagnostics, project details, and skills verification.
+                </p>
+            </div>
+            <div class="text-xs font-mono bg-slate-100 text-slate-600 px-3 py-1.5 rounded-md border border-slate-200 self-start sm:self-auto">
+                Host: <span class="text-[#0a66c2] font-semibold">BIANCA-MSI-LAPTOP</span>
+            </div>
+        </div>
+
+        <!-- QUICK COMMAND BUTTONS FOR TOUCH / MOBILE USERS -->
+        <div class="mb-3">
+            <div class="text-xs font-medium text-slate-500 mb-2 flex items-center gap-1">
+                <span>⚡ Quick Touch Commands:</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                <button onclick="runQuickCommand('help')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">help</button>
+                <button onclick="runQuickCommand('whoami')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">whoami</button>
+                <button onclick="runQuickCommand('skills')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">skills</button>
+                <button onclick="runQuickCommand('projects')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">projects</button>
+                <button onclick="runQuickCommand('sysinfo')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">sysinfo</button>
+                <button onclick="runQuickCommand('contact')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">contact</button>
+                <button onclick="runQuickCommand('matrix')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-emerald-50 hover:bg-emerald-600 hover:text-white border border-emerald-200 text-emerald-700">matrix</button>
+                <button onclick="runQuickCommand('clear')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-red-50 hover:bg-[#dc3545] hover:text-white border border-red-200 text-[#dc3545]">clear</button>
+            </div>
+        </div>
+
+        <!-- TERMINAL WINDOW FRAME -->
+        <div class="rounded-lg overflow-hidden border border-slate-800 shadow-2xl bg-[#0f172a]" onclick="focusTerminalInput()">
+            
+            <!-- TERMINAL WINDOW HEADER -->
+            <div class="bg-slate-900 px-4 py-2.5 flex items-center justify-between border-b border-slate-800 select-none">
+                <!-- Mac / Windows Controls -->
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500 inline-block opacity-80 hover:opacity-100 cursor-pointer"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block opacity-80 hover:opacity-100 cursor-pointer"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500 inline-block opacity-80 hover:opacity-100 cursor-pointer"></span>
+                </div>
+                <!-- Title Bar -->
+                <div class="text-xs font-mono text-slate-400 font-medium truncate px-2">
+                    BIANCA-MSI-LAPTOP - Command Prompt
+                </div>
+                <!-- Status Badge -->
+                <div class="flex items-center space-x-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-[10px] font-mono text-slate-400 hidden sm:inline">ONLINE</span>
+                </div>
+            </div>
+
+            <!-- TERMINAL BODY CONTENT -->
+            <div id="terminal-body" class="terminal-body p-4 font-mono text-xs sm:text-sm h-80 sm:h-96 overflow-y-auto text-slate-200 leading-relaxed">
+                
+                <!-- Welcome Banner -->
+                <div class="mb-4 text-slate-400">
+                    <pre class="text-[10px] sm:text-xs text-[#0a66c2] font-bold leading-tight select-none mb-2">
+ ____  _____    _    _   _  ____    _    
+| __ )|_   _|  / \  | \ | |/ ___|  / \   
+|  _ \  | |   / _ \ |  \| | |     / _ \  
+| |_) | | |  / ___ \| |\  | |___ / ___ \ 
+|____/  |_| /_/   \_\_| \_|\____/_/   \_\
+                    </pre>
+                    <p class="text-emerald-400 font-semibold">BSIT Academic Portfolio Terminal v2.5.0</p>
+                    <p>Type <span class="text-yellow-300 font-bold">'help'</span> to see a list of available diagnostic commands.</p>
+                    <p class="text-slate-500 text-[11px] mt-1">System initialized: Windows 11 Home [Build 22631.3007] on BIANCA-MSI-LAPTOP</p>
+                    <p class="text-slate-600">--------------------------------------------------------------------------------</p>
+                </div>
+
+                <!-- DYNAMIC OUTPUT AREA -->
+                <div id="terminal-output"></div>
+
+                <!-- ACTIVE PROMPT INPUT LINE -->
+                <div class="flex items-center flex-wrap mt-2" id="prompt-line">
+                    <span class="text-emerald-400 font-semibold mr-1">bianca@BIANCA-MSI-LAPTOP</span>
+                    <span class="text-slate-400 mr-1">:</span>
+                    <span class="text-[#0a66c2] font-semibold mr-2">~$</span>
+                    <div class="flex-1 flex items-center min-w-[120px]">
+                        <input 
+                            type="text" 
+                            id="terminal-input" 
+                            class="bg-transparent border-none outline-none text-slate-100 w-full font-mono focus:ring-0 p-0 m-0"
+                            autocomplete="off"
+                            spellcheck="false"
+                            autofocus
+                        />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FOOTER TIP -->
+        <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400 font-mono px-1">
+            <span>💡 Tip: Use <kbd class="px-1.5 py-0.5 bg-slate-100 text-slate-700 rounded border border-slate-200">↑</kbd> <kbd class="px-1.5 py-0.5 bg-slate-100 text-slate-700 rounded border border-slate-200">↓</kbd> keys for command history.</span>
+            <span class="hidden sm:inline">Datamex College of Saint Adeline</span>
+        </div>
+
+    </div>
+
+    <!-- TERMINAL INTERACTIVE SCRIPT -->
+    <script>
+        // System Data Definitions
+        const COMMAND_HISTORY = [];
+        let historyIndex = -1;
+
+        const terminalOutput = document.getElementById('terminal-output');
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalBody = document.getElementById('terminal-body');
+
+        // Focus input automatically
+        function focusTerminalInput() {
+            terminalInput.focus();
+        }
+
+        // Auto-scroll terminal to bottom
+        function scrollToBottom() {
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+
+        // Run quick command from buttons
+        function runQuickCommand(cmd) {
+            terminalInput.value = cmd;
+            processCommand(cmd);
+            terminalInput.value = '';
+            focusTerminalInput();
+        }
+
+        // Keyboard navigation for command history & enter execution
+        terminalInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const command = this.value.trim();
+                processCommand(command);
+                if (command !== '') {
+                    COMMAND_HISTORY.push(command);
+                    historyIndex = COMMAND_HISTORY.length;
+                }
+                this.value = '';
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (COMMAND_HISTORY.length > 0 && historyIndex > 0) {
+                    historyIndex--;
+                    this.value = COMMAND_HISTORY[historyIndex];
+                }
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (historyIndex < COMMAND_HISTORY.length - 1) {
+                    historyIndex++;
+                    this.value = COMMAND_HISTORY[historyIndex];
+                } else {
+                    historyIndex = COMMAND_HISTORY.length;
+                    this.value = '';
+                }
+            }
+        });
+
+        // Command Processor Engine
+        function processCommand(rawInput) {
+            const input = rawInput.trim();
+            const lowerCmd = input.toLowerCase();
+
+            // Print the executed command prompt line
+            const commandLine = document.createElement('div');
+            commandLine.className = 'flex items-center flex-wrap my-1';
+            commandLine.innerHTML = `
+                <span class="text-emerald-400 font-semibold mr-1">bianca@BIANCA-MSI-LAPTOP</span>
+                <span class="text-slate-400 mr-1">:</span>
+                <span class="text-[#0a66c2] font-semibold mr-2">~$</span>
+                <span class="text-slate-100">${escapeHtml(rawInput)}</span>
+            `;
+            terminalOutput.appendChild(commandLine);
+
+            if (input === '') {
+                scrollToBottom();
+                return;
+            }
+
+            // Command Handlers
+            const responseContainer = document.createElement('div');
+            responseContainer.className = 'mb-3 mt-1 text-slate-300';
+
+            switch(lowerCmd) {
+                case 'help':
+                    responseContainer.innerHTML = `
+                        <p class="text-yellow-300 font-semibold mb-1">Available System Commands:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-xs">
+                            <div><span class="text-cyan-400 font-bold">whoami</span> - Display developer profile & program</div>
+                            <div><span class="text-cyan-400 font-bold">skills</span> - List core technical competencies</div>
+                            <div><span class="text-cyan-400 font-bold">projects</span> - View BSIT portfolio project list</div>
+                            <div><span class="text-cyan-400 font-bold">sysinfo</span> - Display MSI laptop system diagnostics</div>
+                            <div><span class="text-cyan-400 font-bold">contact</span> - Show professional contact details</div>
+                            <div><span class="text-cyan-400 font-bold">date</span> - Display current local system timestamp</div>
+                            <div><span class="text-cyan-400 font-bold">matrix</span> - Launch visual matrix terminal stream</div>
+                            <div><span class="text-cyan-400 font-bold">clear / cls</span> - Clear terminal screen output</div>
+                        </div>
+                    `;
+                    break;
+
+                case 'whoami':
+                    responseContainer.innerHTML = `
+                        <div class="border-l-2 border-[#0a66c2] pl-3 py-1">
+                            <p><span class="text-slate-400">Name:</span> <strong class="text-white">Bianca Nicole Sore</strong></p>
+                            <p><span class="text-slate-400">Program:</span> Bachelor of Science in Information Technology (BSIT)</p>
+                            <p><span class="text-slate-400">Institution:</span> Datamex College of Saint Adeline</p>
+                            <p><span class="text-slate-400">Specialization:</span> <span class="text-cyan-300">Front-End Web Development & UI/UX Design</span></p>
+                            <p><span class="text-slate-400">Status:</span> Industry-Ready Portfolio Candidate</p>
+                        </div>
+                    `;
+                    break;
+
+                case 'skills':
+                    responseContainer.innerHTML = `
+                        <p class="text-emerald-400 font-semibold mb-1">Technical Skills Inventory:</p>
+                        <ul class="list-disc list-inside space-y-1 text-xs">
+                            <li><span class="text-white font-bold">Web Development:</span> HTML5, CSS3 (Responsive Design, Red/Blue Glow Effects), JavaScript (ES6+)</li>
+                            <li><span class="text-white font-bold">UI/UX Design:</span> Figma Wireframing, User Flow Design, Prototyping</li>
+                            <li><span class="text-white font-bold">Troubleshooting & CLI:</span> Windows Registry Fixes (<code class="text-yellow-300">ChildCompletion</code>), Network Commands (<code class="text-yellow-300">ipconfig</code>, <code class="text-yellow-300">flushdns</code>)</li>
+                            <li><span class="text-white font-bold">Data Analytics:</span> Excel Data Processing, Pearson Correlation Analysis ($r = -0.748$)</li>
+                            <li><span class="text-white font-bold">Tools & Cloud:</span> Git, GitHub, GitHub Pages (HTTPS Live Deployment)</li>
+                        </ul>
+                    `;
+                    break;
+
+                case 'projects':
+                    responseContainer.innerHTML = `
+                        <p class="text-cyan-400 font-semibold mb-1">Featured BSIT Portfolio Projects:</p>
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-slate-800/60 p-2 rounded border border-slate-700/50">
+                                <span class="text-emerald-400 font-bold">[Project 1]</span> <span class="text-white font-semibold">Industry-Ready Personal Portfolio Website</span>
+                                <p class="text-slate-400">Responsive single-page web app with red/blue ambient glow theme, CLI terminal simulator, and HTTPS GitHub Pages hosting.</p>
+                            </div>
+                            <div class="bg-slate-800/60 p-2 rounded border border-slate-700/50">
+                                <span class="text-emerald-400 font-bold">[Project 2]</span> <span class="text-white font-semibold">IT Helpdesk Ticketing System Dashboard</span>
+                                <p class="text-slate-400">Operational analytics dashboard tracking resolution times, SLA compliance, and support ticket bottleneck management.</p>
+                            </div>
+                            <div class="bg-slate-800/60 p-2 rounded border border-slate-700/50">
+                                <span class="text-emerald-400 font-bold">[Project 3]</span> <span class="text-white font-semibold">Campus Wi-Fi RSSI & Pearson Correlation Analytics</span>
+                                <p class="text-slate-400">Empirical correlation analysis ($r = -0.748$) measuring signal degradation across 50 campus access point locations.</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                case 'sysinfo':
+                    responseContainer.innerHTML = `
+                        <div class="font-mono text-xs bg-slate-900/80 p-3 rounded border border-slate-700 space-y-1">
+                            <p><span class="text-slate-400">Host System:</span> <span class="text-cyan-300 font-bold">BIANCA-MSI-LAPTOP</span></p>
+                            <p><span class="text-slate-400">OS Platform:</span> Windows 11 Home 64-bit</p>
+                            <p><span class="text-slate-400">Hardware Model:</span> MSI Laptop Series</p>
+                            <p><span class="text-slate-400">Recent Troubleshooting Milestone:</span></p>
+                            <p class="text-emerald-400 pl-3">✓ Resolved persistent installation reboot loop via Registry Editor (<code class="text-yellow-300">regedit</code>)</p>
+                            <p class="text-emerald-400 pl-3">✓ Updated execution flag under <code class="text-yellow-300">HKLM\\SYSTEM\\Setup\\Status\\ChildCompletion</code> (Value: 3)</p>
+                        </div>
+                    `;
+                    break;
+
+                case 'contact':
+                    responseContainer.innerHTML = `
+                        <p class="text-slate-300 mb-1">Professional Contact Channels:</p>
+                        <div class="space-y-1 text-xs">
+                            <p>📧 <span class="text-slate-400">Email:</span> <a href="mailto:biancanicole.sore@gmail.com" class="text-cyan-400 underline hover:text-cyan-300">biancanicole.sore@gmail.com</a></p>
+                            <p>💼 <span class="text-slate-400">LinkedIn:</span> <a href="https://linkedin.com" target="_blank" class="text-[#0a66c2] underline hover:text-blue-400">linkedin.com/in/bianca-nicole</a></p>
+                            <p>🐙 <span class="text-slate-400">GitHub:</span> <a href="https://github.com" target="_blank" class="text-purple-400 underline hover:text-purple-300">github.com/bianca-nicole</a></p>
+                        </div>
+                    `;
+                    break;
+
+                case 'date':
+                case 'time':
+                    const now = new Date();
+                    responseContainer.innerHTML = `
+                        <p class="text-cyan-300">Current Local Timestamp: <span class="text-white font-bold">${now.toString()}</span></p>
+                    `;
+                    break;
+
+                case 'clear':
+                case 'cls':
+                    terminalOutput.innerHTML = '';
+                    scrollToBottom();
+                    return;
+
+                case 'matrix':
+                    responseContainer.innerHTML = `
+                        <div class="text-emerald-400 font-mono text-xs leading-tight animate-pulse my-1">
+                            01000010 01001001 01000001 01001110 01000011 01000001 <br>
+                            10110010 01101001 01110100 00100000 01110011 01101011 <br>
+                            01010011 01011001 01010011 01010100 01000101 01001101 <br>
+                            <span class="text-white font-bold">>>> MATRIX STREAM INITIALIZED: BSIT GRADUATE READY <<<</span>
+                        </div>
+                    `;
+                    break;
+
+                default:
+                    responseContainer.innerHTML = `
+                        <p class="text-red-400">Command not found: <span class="text-slate-200">'${escapeHtml(rawInput)}'</span></p>
+                        <p class="text-slate-500 text-xs mt-0.5">Type <span class="text-yellow-300 font-bold">'help'</span> to view all valid interactive commands.</p>
+                    `;
+                    break;
+            }
+
+            terminalOutput.appendChild(responseContainer);
+            scrollToBottom();
+        }
+
+        // Helper function to prevent HTML injection in terminal input
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.innerText = text;
+            return div.innerHTML;
+        }
+    </script>
+
 <!-- PROJECTS -->
 <section id="projects" class="section">
 <h2>Projects</h2>
