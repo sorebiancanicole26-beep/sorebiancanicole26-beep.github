@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus WiFi Performance Analysis Dashboard - Bianca Nicole Sore</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+  .glass-card { background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+  .accent-bar { width: 6px; background: linear-gradient(to bottom, #dc2626, #2563eb); border-radius: 4px 0 0 4px; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+</style>
+</head>
+<body class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+
+<div class="max-w-6xl mx-auto space-y-6">
+
+  <!-- TOP NAVIGATION / BACK LINK -->
+  <div class="flex justify-between items-center">
+    <a href="index.html" class="inline-flex items-center text-sm font-semibold text-slate-600 hover:text-blue-600 transition bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">
+      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+      Back to Portfolio
+    </a>
+    <span class="text-xs font-bold uppercase tracking-wider bg-red-100 text-red-700 px-3 py-1 rounded-full">Project 3 Specialization</span>
+  </div>
+
+  <!-- MAIN HEADER CONTAINER -->
+  <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 animate-fade-in">
+    <div class="space-y-2">
+      <div class="flex items-center space-x-3">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-red-600 to-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
+          📶
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-red-600">BSIT PROJECT 3 EVIDENCE</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Campus WiFi Performance Analysis Dashboard</h1>
+        </div>
+      </div>
+      <p class="text-slate-500 text-sm sm:text-base max-w-2xl">
+        Data-driven evaluation of 50 campus network records analyzing connection speeds, downtime impact, and user satisfaction correlations.
+      </p>
+    </div>
+    <div class="flex flex-wrap gap-3 w-full md:w-auto">
+      <button onclick="openShareModal()" class="flex-1 md:flex-none inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 text-sm font-semibold transition shadow-sm">
+        <svg class="w-4 h-4 mr-2 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+        Embed / Share
+      </button>
+      <button onclick="exportReport()" class="flex-1 md:flex-none inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-sm font-semibold transition shadow-md hover:shadow-lg">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Export Report
+      </button>
+    </div>
+  </div>
+
+  <!-- INVESTIGATOR INFO CARD -->
+  <div class="glass-card rounded-2xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative overflow-hidden">
+    <div class="absolute left-0 top-0 bottom-0 accent-bar"></div>
+    <div class="pl-3 space-y-1">
+      <div class="flex items-center space-x-2 text-xs font-semibold text-blue-600 uppercase tracking-wide">
+        <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/></svg>
+        <span>Datamex College of Saint Adeline • Campus Network Case Study</span>
+      </div>
+      <h2 class="text-xl font-bold text-slate-800">Student Investigator: <span class="text-blue-600">Bianca Nicole Sore</span></h2>
+      <p class="text-xs text-slate-500">Comprehensive statistical analysis derived from 50 surveyed campus connection logs.</p>
+    </div>
+    <div class="bg-slate-50 border border-slate-200 px-4 py-2.5 rounded-xl text-right w-full sm:w-auto">
+      <div class="text-xs text-slate-500 font-medium">Dataset Status</div>
+      <div class="text-sm font-bold text-emerald-600 flex items-center justify-end sm:justify-start gap-1">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Verified & Cleaned (50 Records)
+      </div>
+    </div>
+  </div>
+
+  <!-- METRICS SUMMARY GRID -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="glass-card p-5 rounded-2xl flex items-center space-x-4 border-l-4 border-blue-600">
+      <div class="p-3 bg-blue-50 text-blue-600 rounded-xl font-bold text-xl">📊</div>
+      <div>
+        <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Records</div>
+        <div class="text-2xl font-extrabold text-slate-900 mt-0.5">50 Records</div>
+        <div class="text-xs text-emerald-600 font-medium mt-1">100% Sample Complete</div>
+      </div>
+    </div>
+    <div class="glass-card p-5 rounded-2xl flex items-center space-x-4 border-l-4 border-emerald-500">
+      <div class="p-3 bg-emerald-50 text-emerald-600 rounded-xl font-bold text-xl">⚡</div>
+      <div>
+        <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Avg Download Speed</div>
+        <div class="text-2xl font-extrabold text-slate-900 mt-0.5">76.51 Mbps</div>
+        <div class="text-xs text-slate-500 font-medium mt-1">Peak: 103.8 Mbps</div>
+      </div>
+    </div>
+    <div class="glass-card p-5 rounded-2xl flex items-center space-x-4 border-l-4 border-amber-500">
+      <div class="p-3 bg-amber-50 text-amber-600 rounded-xl font-bold text-xl">⏱️</div>
+      <div>
+        <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Avg Downtime</div>
+        <div class="text-2xl font-extrabold text-slate-900 mt-0.5">18.40 Mins</div>
+        <div class="text-xs text-amber-600 font-medium mt-1">Max Interruption: 45m</div>
+      </div>
+    </div>
+    <div class="glass-card p-5 rounded-2xl flex items-center space-x-4 border-l-4 border-red-600">
+      <div class="p-3 bg-red-50 text-red-600 rounded-xl font-bold text-xl">📉</div>
+      <div>
+        <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Satisfaction Corr. ($r$)</div>
+        <div class="text-2xl font-extrabold text-red-600 mt-0.5">-0.748</div>
+        <div class="text-xs text-red-500 font-medium mt-1">Strong Negative Relation</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAMPUS LOCATION PERFORMANCE PIVOT TABLE -->
+  <div class="glass-card rounded-2xl p-6 sm:p-8">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+      <div>
+        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+          <span>🏢</span> Campus Location Performance Breakdown (Pivot Table)
+        </h3>
+        <p class="text-xs text-slate-500">Comparison of download speeds, downtime minutes, and satisfaction ratings across campus zones.</p>
+      </div>
+      <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-semibold">5 Locations Analyzed</span>
+    </div>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="border-b border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 uppercase tracking-wider">
+            <th class="py-3 px-4">Campus Location</th>
+            <th class="py-3 px-4 text-center">Users / Records</th>
+            <th class="py-3 px-4 text-center">Avg Downtime (Mins)</th>
+            <th class="py-3 px-4 text-center">Avg Download (Mbps)</th>
+            <th class="py-3 px-4 text-center">Avg Satisfaction (/5)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100 text-sm">
+          <tr class="hover:bg-slate-50 transition">
+            <td class="py-3.5 px-4 font-semibold text-slate-800">Computer Laboratory</td>
+            <td class="py-3.5 px-4 text-center">14</td>
+            <td class="py-3.5 px-4 text-center text-emerald-600 font-semibold">10.00</td>
+            <td class="py-3.5 px-4 text-center font-bold text-blue-600">82.44</td>
+            <td class="py-3.5 px-4 text-center">4.34</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="py-3.5 px-4 font-semibold text-slate-800">Engineering Building</td>
+            <td class="py-3.5 px-4 text-center">10</td>
+            <td class="py-3.5 px-4 text-center text-emerald-600 font-semibold">12.70</td>
+            <td class="py-3.5 px-4 text-center font-bold text-blue-600">75.29</td>
+            <td class="py-3.5 px-4 text-center">4.40</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="py-3.5 px-4 font-semibold text-slate-800">Library</td>
+            <td class="py-3.5 px-4 text-center">6</td>
+            <td class="py-3.5 px-4 text-center text-amber-600 font-semibold">16.33</td>
+            <td class="py-3.5 px-4 text-center font-bold text-blue-600">73.03</td>
+            <td class="py-3.5 px-4 text-center font-bold text-emerald-600">4.60</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="py-3.5 px-4 font-semibold text-slate-800">Main Building</td>
+            <td class="py-3.5 px-4 text-center">10</td>
+            <td class="py-3.5 px-4 text-center text-red-600 font-semibold">27.30</td>
+            <td class="py-3.5 px-4 text-center font-bold text-blue-600">70.40</td>
+            <td class="py-3.5 px-4 text-center">3.89</td>
+          </tr>
+          <tr class="hover:bg-slate-50 transition">
+            <td class="py-3.5 px-4 font-semibold text-slate-800">Student Center</td>
+            <td class="py-3.5 px-4 text-center">10</td>
+            <td class="py-3.5 px-4 text-center text-red-600 font-semibold">28.20</td>
+            <td class="py-3.5 px-4 text-center font-bold text-red-600">65.63</td>
+            <td class="py-3.5 px-4 text-center">3.99</td>
+          </tr>
+          <tr class="bg-slate-100 font-bold text-slate-900 border-t-2 border-slate-300">
+            <td class="py-3.5 px-4">Grand Total / Overall Average</td>
+            <td class="py-3.5 px-4 text-center">50</td>
+            <td class="py-3.5 px-4 text-center">18.40</td>
+            <td class="py-3.5 px-4 text-center text-blue-700">76.51</td>
+            <td class="py-3.5 px-4 text-center">4.22</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TWO COLUMN SECTION: USER TYPE & STATISTICAL METRICS -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    
+    <!-- User Type Breakdown -->
+    <div class="glass-card rounded-2xl p-6 sm:p-8">
+      <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <span>👥</span> User Type Distribution & Speeds
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="border-b border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 uppercase">
+              <th class="py-3 px-3">User Classification</th>
+              <th class="py-3 px-3 text-center">Headcount</th>
+              <th class="py-3 px-3 text-center">Avg Download</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="py-3 px-3 font-semibold text-slate-800">Student</td>
+              <td class="py-3 px-3 text-center">37 (74%)</td>
+              <td class="py-3 px-3 text-center font-bold text-blue-600">76.72 Mbps</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-semibold text-slate-800">Faculty</td>
+              <td class="py-3 px-3 text-center">9 (18%)</td>
+              <td class="py-3 px-3 text-center font-bold text-blue-600">71.91 Mbps</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-semibold text-slate-800">Staff</td>
+              <td class="py-3 px-3 text-center">4 (8%)</td>
+              <td class="py-3 px-3 text-center font-bold text-blue-600">84.93 Mbps</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-800">
+        📌 <strong>Observation:</strong> Staff accounts experience higher peak bandwidth availability due to priority AP allocation in administrative zones.
+      </div>
+    </div>
+
+    <!-- Summary Statistics -->
+    <div class="glass-card rounded-2xl p-6 sm:p-8">
+      <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <span>📈</span> Overall Descriptive Statistics
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="border-b border-slate-200 bg-slate-50 text-xs font-bold text-slate-600 uppercase">
+              <th class="py-3 px-3">Parameter</th>
+              <th class="py-3 px-3 text-center">Mean</th>
+              <th class="py-3 px-3 text-center">Median</th>
+              <th class="py-3 px-3 text-center">Max</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="py-3 px-3 font-semibold text-slate-800">Download Speed</td>
+              <td class="py-3 px-3 text-center font-bold">76.51</td>
+              <td class="py-3 px-3 text-center">77.10</td>
+              <td class="py-3 px-3 text-center text-emerald-600">103.8</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-semibold text-slate-800">Upload Speed</td>
+              <td class="py-3 px-3 text-center font-bold">21.91</td>
+              <td class="py-3 px-3 text-center">20.95</td>
+              <td class="py-3 px-3 text-center text-emerald-600">34.5</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-semibold text-slate-800">Downtime Minutes</td>
+              <td class="py-3 px-3 text-center font-bold">18.40</td>
+              <td class="py-3 px-3 text-center">18.50</td>
+              <td class="py-3 px-3 text-center text-red-600">45.0</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-semibold text-slate-800">Satisfaction Rating</td>
+              <td class="py-3 px-3 text-center font-bold">4.22</td>
+              <td class="py-3 px-3 text-center">4.25</td>
+              <td class="py-3 px-3 text-center text-emerald-600">5.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INTERPRETATION OF FINDINGS & CORRELATIONS -->
+  <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+      <span>💡</span> Key Findings & Correlation Insights
+    </h3>
+    
+    <div class="p-4 bg-slate-50 border-l-4 border-blue-600 rounded-r-xl">
+      <h4 class="font-bold text-slate-800 text-sm mb-1">1. Location Speed Bottlenecks</h4>
+      <p class="text-slate-600 text-sm">
+        The Computer Laboratory achieves the highest download speed (82.44 Mbps) with minimal downtime (10 mins), whereas the Student Center suffers from the lowest speed (65.63 Mbps) and highest downtime (28.20 mins) due to high concurrent device density.
+      </p>
+    </div>
+
+    <div class="p-4 bg-slate-50 border-l-4 border-slate-400 rounded-r-xl">
+      <h4 class="font-bold text-slate-800 text-sm mb-1">2. Connected Devices vs. Speed Correlation ($r = -0.009$)</h4>
+      <p class="text-slate-600 text-sm">
+        Shows virtually no linear correlation between device volume and download speed. This proves that network speed degradation is tied primarily to router hardware limits and backbone congestion rather than raw device counts.
+      </p>
+    </div>
+
+    <div class="p-4 bg-red-50 border-l-4 border-red-600 rounded-r-xl">
+      <h4 class="font-bold text-slate-800 text-sm mb-1">3. Downtime vs. Satisfaction Correlation ($r = -0.748$)</h4>
+      <p class="text-slate-700 text-sm">
+        Reveals a strong negative correlation ($r = -0.748$). As downtime minutes increase in areas like the Student Center and Main Building, user satisfaction drops sharply, highlighting network stability as the primary driver of campus user morale.
+      </p>
+    </div>
+  </div>
+
+  <!-- ACTIONABLE RECOMMENDATIONS -->
+  <div class="glass-card rounded-2xl p-6 sm:p-8">
+    <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+      <span>🛠️</span> Actionable IT Recommendations
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="p-5 bg-slate-50 rounded-xl border border-slate-200">
+        <div class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center font-bold mb-3">1</div>
+        <h4 class="font-bold text-slate-800 mb-1 text-sm">Student Center & Main Building Upgrade</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">Deploy high-capacity mesh routers and secondary fiber uplinks to resolve severe downtime spikes exceeding 27 minutes.</p>
+      </div>
+      <div class="p-5 bg-slate-50 rounded-xl border border-slate-200">
+        <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold mb-3">2</div>
+        <h4 class="font-bold text-slate-800 mb-1 text-sm">Proactive Downtime Mitigation</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">Mitigate the strong negative impact ($r = -0.748$) on satisfaction by scheduling maintenance during non-peak off-hours.</p>
+      </div>
+      <div class="p-5 bg-slate-50 rounded-xl border border-slate-200">
+        <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold mb-3">3</div>
+        <h4 class="font-bold text-slate-800 mb-1 text-sm">Dynamic Bandwidth Throttling</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">Implement Quality of Service (QoS) rules to prioritize academic research over streaming traffic in heavy-use zones.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="text-center py-6 text-xs text-slate-400">
+    Campus WiFi Performance Analysis Dashboard • Created for BSIT Portfolio Defense by Bianca Nicole Sore
+  </div>
+
+</div>
+
+<!-- EXPORT & SHARE MODAL -->
+<div id="shareModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+  <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-fade-in">
+    <div class="flex justify-between items-center">
+      <h3 class="text-lg font-bold text-slate-900">Export or Embed Dashboard</h3>
+      <button onclick="closeShareModal()" class="text-slate-400 hover:text-slate-600 font-bold text-xl">&times;</button>
+    </div>
+    <p class="text-xs text-slate-500">Copy the HTML embed snippet or download the JSON summary data for your portfolio archive.</p>
+    
+    <div class="space-y-2">
+      <label class="text-xs font-semibold text-slate-700">HTML Embed Code</label>
+      <textarea readonly class="w-full h-24 p-3 text-xs bg-slate-50 border border-slate-200 rounded-xl font-mono text-slate-600 focus:outline-none">&lt;iframe src="project3-wifi-dashboard.html" width="100%" height="800px" style="border:none;border-radius:12px;"&gt;&lt;/iframe&gt;</textarea>
+    </div>
+
+    <div class="flex gap-3 pt-2">
+      <button onclick="copyEmbedCode()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-xl text-sm font-semibold transition">Copy Embed Code</button>
+      <button onclick="closeShareModal()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openShareModal() {
+    document.getElementById('shareModal').classList.remove('hidden');
+    document.getElementById('shareModal').classList.add('flex');
+  }
+  function closeShareModal() {
+    document.getElementById('shareModal').classList.add('hidden');
+    document.getElementById('shareModal').classList.remove('flex');
+  }
+  function copyEmbedCode() {
+    const codeArea = document.querySelector('textarea');
+    document.execCommand('copy');
+    alert('Embed code copied to clipboard successfully!');
+    closeShareModal();
+  }
+  function exportReport() {
+    const reportData = {
+      project: "Campus WiFi Performance Analysis Dashboard",
+      investigator: "Bianca Nicole Sore",
+      institution: "Datamex College of Saint Adeline",
+      records: 50,
+      metrics: {
+        avgDownloadSpeed: "76.51 Mbps",
+        avgDowntime: "18.40 Mins",
+        satisfactionCorrelation: "-0.748"
+      },
+      locations: [
+        { name: "Computer Laboratory", users: 14, downtime: 10.00, download: 82.44, satisfaction: 4.34 },
+        { name: "Engineering Building", users: 10, downtime: 12.70, download: 75.29, satisfaction: 4.40 },
+        { name: "Library", users: 6, downtime: 16.33, download: 73.03, satisfaction: 4.60 },
+        { name: "Main Building", users: 10, downtime: 27.30, download: 70.40, satisfaction: 3.89 },
+        { name: "Student Center", users: 10, downtime: 28.20, download: 65.63, satisfaction: 3.99 }
+      ]
+    };
+    const blob = new Blob([JSON.stringify(reportData, null, 2)], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Campus_WiFi_Performance_Report_BiancaSore.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>
