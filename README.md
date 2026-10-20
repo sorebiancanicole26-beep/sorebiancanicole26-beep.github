@@ -52,13 +52,14 @@ Entry-level IT applicants often struggle to demonstrate practical technical skil
 graph TD
     A[User Browser / Client] -->|HTTPS Request| B[GitHub Pages SSL Server]
     B -->|Serves Web Assets| C[Repository Root Folder]
-    
+
     subgraph Repository Assets
         C --> D[index.html - Main Portfolio & CLI]
         C --> E[project2-dashboard.html - IT Helpdesk]
         C --> F[project3-wifi-dashboard.html - Campus Wi-Fi]
     end
-
+```
+---
 ---
 
 ## 9. Database Design
