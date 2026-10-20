@@ -218,15 +218,64 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 
 <!-- 5. PROBLEM-SOLVING -->
 <section id="problem-solving" class="section">
-<h2>5. Problem-Solving</h2>
-<p class="section-intro">Real-world technical troubleshooting.</p>
-<div class="glow-card">
-<h3 style="color:#dc3545;margin-bottom:10px">Case Study 1: Resolving Windows Setup Loop via Registry</h3>
+<h2>5. Problem-Solving Portfolio</h2>
+<p class="section-intro">Real-world IT troubleshooting cases, system diagnostics, and root-cause analytics.</p>
+
+<div class="glow-card" style="margin-bottom:15px;">
+<h3 style="color:#dc3545;margin-bottom:10px">Case 1: Windows Setup Error Loop Resolution via Registry Editor</h3>
 <p style="color:#555;line-height:1.6">
-<strong>Issue:</strong> Encountered a persistent system configuration error loop during an operating system reinstallation on an MSI laptop.<br>
-<strong>Resolution:</strong> Utilized Command Prompt at setup to launch the Windows Registry Editor (`regedit`), navigated to `ChildCompletion`, modified the setup execution status value, and cleared the boot cycle error to complete setup successfully.
+<strong>Problem:</strong> Encountered a persistent setup error loop (<em>"Windows could not complete the installation"</em>) during a clean Windows 11 OS reinstallation on an MSI laptop.<br>
+<strong>Possible Causes:</strong> Interrupted setup execution flags or corrupted configuration keys within the Windows Registry.<br>
+<strong>Diagnostic Procedure:</strong> Accessed Command Prompt at the error screen using <code>Shift + F10</code> and launched the Windows Registry Editor by executing <code>regedit</code>.<br>
+<strong>Solution:</strong> Navigated to <code>HKLM\SYSTEM\Setup\Status\ChildCompletion</code>, modified the execution status value from <code>1</code> to <code>3</code>, restarted the setup sequence, and successfully completed OS bootup.<br>
+<strong>Lesson Learned:</strong> Advanced knowledge of the Windows Registry and CLI utilities is essential for emergency OS recovery without requiring full drive re-formatting.
 </p>
 </div>
+
+<div class="glow-card" style="margin-bottom:15px;">
+<h3 style="color:#0a66c2;margin-bottom:10px">Case 2: Local DNS Cache Corruption & Web Connectivity Failure</h3>
+<p style="color:#555;line-height:1.6">
+<strong>Problem:</strong> Web browser failing to load live GitHub Pages deployments despite an active Wi-Fi connection.<br>
+<strong>Possible Causes:</strong> Stale or outdated local DNS resolver cache entries following domain updates.<br>
+<strong>Diagnostic Procedure:</strong> Executed network CLI commands (<code>ping google.com</code> and <code>ipconfig /all</code>) to verify IP gateway routing and packet transmission.<br>
+<strong>Solution:</strong> Executed <code>ipconfig /flushdns</code> in Command Prompt to clear the DNS resolver cache, instantly restoring domain name resolution and website access.<br>
+<strong>Lesson Learned:</strong> Standard CLI diagnostic utilities provide fast, effective resolution for network-layer cache inconsistencies.
+</p>
+</div>
+
+<div class="glow-card" style="margin-bottom:15px;">
+<h3 style="color:#198754;margin-bottom:10px">Case 3: Mitigating High Network Downtime Bottlenecks in Campus Wi-Fi</h3>
+<p style="color:#555;line-height:1.6">
+<strong>Problem:</strong> Low user satisfaction ratings and frequent connection drops reported at the Campus Student Center.<br>
+<strong>Possible Causes:</strong> Localized network infrastructure bottlenecks resulting in excessive downtime based on empirical data.<br>
+<strong>Diagnostic Procedure:</strong> Constructed an Excel PivotTable to analyze average downtime across campus locations (Student Center recorded the highest at 28.20 mins avg).<br>
+<strong>Solution:</strong> Recommended targeted access point hardware upgrades and scheduling maintenance during off-peak hours to mitigate correlation impact (r = -0.748).<br>
+<strong>Lesson Learned:</strong> Data analytics provides verifiable evidence to isolate root causes in network infrastructure rather than relying on guesswork.
+</p>
+</div>
+
+<div class="glow-card" style="margin-bottom:15px;">
+<h3 style="color:#6f42c1;margin-bottom:10px">Case 4: Optimizing Resolution Delays in IT Service Center Tickets</h3>
+<p style="color:#555;line-height:1.6">
+<strong>Problem:</strong> Growing ticket backlog and extended resolution times in the IT Support Service Center.<br>
+<strong>Possible Causes:</strong> Lack of specialized diagnostic tools and dispatch workflows for Hardware (6.0 hrs avg) and Network (4.9 hrs avg) requests.<br>
+<strong>Diagnostic Procedure:</strong> Analyzed 50 IT support ticket records using descriptive statistics and correlation analysis (r = -0.59).<br>
+<strong>Solution:</strong> Structured a ticket prioritization framework and recommended equipping technicians with dedicated diagnostic toolkits to reduce resolution delays.<br>
+<strong>Lesson Learned:</strong> Optimizing technical support workflows directly improves service efficiency and user satisfaction scores.
+</p>
+</div>
+
+<div class="glow-card" style="margin-bottom:15px;">
+<h3 style="color:#dc3545;margin-bottom:10px">Case 5: Troubleshooting Relative Links & Script Execution on GitHub Pages</h3>
+<p style="color:#555;line-height:1.6">
+<strong>Problem:</strong> Project dashboards failing to load (404 Error) when clicking cards in the main portfolio, and interactive CLI buttons unresponsive.<br>
+<strong>Possible Causes:</strong> Incorrect file pathing (<code>href</code>), misplaced subfolder structures, and missing JavaScript event handling functions (<code>runCmd</code>).<br>
+<strong>Diagnostic Procedure:</strong> Used Browser Developer Tools (<code>F12</code> Console) to inspect network requests and locate script syntax errors.<br>
+<strong>Solution:</strong> Consolidated all HTML files (<code>index.html</code>, <code>project2-dashboard.html</code>, <code>project3-wifi-dashboard.html</code>) into the root directory and restored the JavaScript handler.<br>
+<strong>Lesson Learned:</strong> Consistent repository file structures and verified script paths are crucial for seamless multi-page web deployments.
+</p>
+</div>
+
 </section>
 
 <!-- 6. EMPLOYABILITY & CERTIFICATES -->
