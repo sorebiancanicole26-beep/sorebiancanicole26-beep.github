@@ -47,6 +47,12 @@ h2:hover{color:#dc3545;text-shadow:0 0 15px rgba(220,53,69,0.4)}
 .term-output{white-space:pre-wrap;color:#7ee787;min-height:80px;line-height:1.4}
 .sec-item{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:0.95rem;color:#444}
 .sec-item input[type="checkbox"]{width:18px;height:18px;accent-color:#dc3545;cursor:pointer}
+
+/* CERTIFICATE IMAGE PLACEHOLDER STYLES (5 SPACES) */
+.cert-grid-5{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:12px}
+.cert-box{border:2px dashed #ced4da;border-radius:8px;padding:12px;text-align:center;background:#f8f9fa;transition:.3s}
+.cert-box:hover{border-color:#dc3545;background:#fff;transform:translateY(-2px)}
+.cert-img{width:100%;height:90px;object-fit:cover;border-radius:4px;margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -219,15 +225,54 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 <!-- 6. EMPLOYABILITY & CERTIFICATES -->
 <section id="employability" class="section">
 <h2>6. Employability & Achievements</h2>
-<p class="section-intro">Professional readiness assets, career materials, and achievements.</p>
-<div class="grid-2">
-<div class="glow-card">
+<p class="section-intro">Professional readiness assets, career materials, and certificate evidence.</p>
+
+<div class="glow-card" style="margin-bottom:20px;">
 <h3 style="color:#0a66c2;margin-bottom:10px">Career & Profile Assets</h3>
 <p style="color:#555;line-height:1.6">• 1-Page Professional Resume (PDF)<br>• Verified LinkedIn Student Profile<br>• Public GitHub Technical Evidence Repository</p>
 </div>
+
+<!-- CERTIFICATES WITH 5 IMAGE PLACEHOLDERS -->
 <div class="glow-card">
-<h3 style="color:#dc3545;margin-bottom:10px">Certificates & Achievements</h3>
-<p style="color:#555;line-height:1.6">• Academic Coursework in Systems Thinking<br">• Front-End Web Development Projects<br">• Professional Portfolio Presentation</p>
+<h3 style="color:#dc3545;margin-bottom:10px">Certificates & Achievements Gallery (5 Slots)</h3>
+<p style="color:#555;font-size:0.9rem;margin-bottom:10px">Academic coursework, technical training, and seminar certificates:</p>
+<div class="cert-grid-5">
+
+<!-- Slot 1 -->
+<div class="cert-box">
+<img src="certificate1.jpg" alt="Certificate 1" class="cert-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+<p style="font-size:0.75rem;color:#777;display:none;">[ cert1.jpg ]</p>
+<span style="font-size:0.8rem;font-weight:600;color:#333;">Systems Thinking</span>
+</div>
+
+<!-- Slot 2 -->
+<div class="cert-box">
+<img src="certificate2.jpg" alt="Certificate 2" class="cert-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+<p style="font-size:0.75rem;color:#777;display:none;">[ cert2.jpg ]</p>
+<span style="font-size:0.8rem;font-weight:600;color:#333;">Web Development</span>
+</div>
+
+<!-- Slot 3 -->
+<div class="cert-box">
+<img src="certificate3.jpg" alt="Certificate 3" class="cert-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+<p style="font-size:0.75rem;color:#777;display:none;">[ cert3.jpg ]</p>
+<span style="font-size:0.8rem;font-weight:600;color:#333;">UI/UX Design</span>
+</div>
+
+<!-- Slot 4 -->
+<div class="cert-box">
+<img src="certificate4.jpg" alt="Certificate 4" class="cert-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+<p style="font-size:0.75rem;color:#777;display:none;">[ cert4.jpg ]</p>
+<span style="font-size:0.8rem;font-weight:600;color:#333;">Networking / IT</span>
+</div>
+
+<!-- Slot 5 -->
+<div class="cert-box">
+<img src="certificate5.jpg" alt="Certificate 5" class="cert-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+<p style="font-size:0.75rem;color:#777;display:none;">[ cert5.jpg ]</p>
+<span style="font-size:0.8rem;font-weight:600;color:#333;">Cybersecurity</span>
+</div>
+
 </div>
 </div>
 </section>
