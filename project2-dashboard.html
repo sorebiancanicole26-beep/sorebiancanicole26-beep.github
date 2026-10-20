@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Service Center Performance Analytics - Bianca Nicole Sore</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#dc3545',
+                        brandBlue: '#0a66c2',
+                        darkNavy: '#0d1117',
+                    },
+                    boxShadow: {
+                        'glow-red': '0 0 15px rgba(220, 53, 69, 0.35)',
+                        'glow-blue': '0 0 15px rgba(10, 102, 194, 0.35)',
+                        'card-hover': '0 8px 25px rgba(220, 53, 69, 0.15), 0 0 15px rgba(10, 102, 194, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .bg-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(circle at 15% 20%, rgba(220, 53, 69, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(10, 102, 194, 0.08) 0%, transparent 40%);
+        }
+        .glow-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        .glow-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(220, 53, 69, 0.3);
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.12), 0 0 15px rgba(10, 102, 194, 0.08);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12 relative">
+    <div class="bg-effects"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brandRed to-brandBlue flex items-center justify-center text-white font-bold text-xl shadow-glow-red">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-semibold tracking-wider text-brandBlue uppercase">BSIT Project 2 Evidence</span>
+                    <h1 class="text-lg font-bold text-gray-900 leading-tight">IT Service Center Analytics Dashboard</h1>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button onclick="openShareModal()" class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900 border border-gray-300 transition-all duration-200 flex items-center gap-2">
+                    <i class="fa-solid fa-code text-brandRed"></i>
+                    <span>Embed / Share</span>
+                </button>
+                <button onclick="exportSummaryReport()" class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-brandRed text-white hover:bg-red-700 shadow-glow-red transition-all duration-200 flex items-center gap-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span class="hidden sm:inline">Export Report</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-8">
+
+        <!-- STUDENT CREDENTIAL BANNER -->
+        <div class="glow-card p-6 border-l-4 border-l-brandRed flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-gradient-to-r from-white via-red-50/20 to-blue-50/20">
+            <div>
+                <div class="flex items-center gap-2 text-brandRed font-bold text-sm mb-1">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Datamex College of Saint Adeline • Case Study 12 Analysis</span>
+                </div>
+                <h2 class="text-xl font-bold text-gray-800">Student Investigator: <span class="text-brandBlue">Bianca Nicole Sore</span></h2>
+                <p class="text-sm text-gray-600 mt-1">Data-driven evaluation of 50 IT ticket requests to assess service efficiency, technician productivity, and user satisfaction.</p>
+            </div>
+            <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                <span class="bg-red-100 text-brandRed px-3 py-1.5 rounded-full border border-red-200"><i class="fa-solid fa-ticket mr-1"></i> Total Tickets: 50</span>
+                <span class="bg-blue-100 text-brandBlue px-3 py-1.5 rounded-full border border-blue-200"><i class="fa-solid fa-bolt mr-1"></i> First Contact: 58%</span>
+                <span class="bg-green-100 text-green-700 px-3 py-1.5 rounded-full border border-green-200"><i class="fa-solid fa-chart-line mr-1"></i> Correlation: -0.59</span>
+            </div>
+        </div>
+
+        <!-- METRIC CARDS OVERVIEW -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <!-- Metric 1 -->
+            <div class="glow-card p-5 relative overflow-hidden">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Total Requests</p>
+                        <h3 class="text-3xl font-extrabold text-gray-900 mt-1">50</h3>
+                        <p class="text-xs text-gray-500 mt-1"><span class="text-emerald-600 font-semibold"><i class="fa-solid fa-user-graduate"></i> 36 Students</span> (72%)</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center text-brandRed text-xl">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metric 2 -->
+            <div class="glow-card p-5 relative overflow-hidden">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Avg Response Time</p>
+                        <h3 class="text-3xl font-extrabold text-brandBlue mt-1">36.2 <span class="text-sm font-normal text-gray-500">mins</span></h3>
+                        <p class="text-xs text-gray-500 mt-1">Range: 3.0 to 77.0 mins</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brandBlue text-xl">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="glow-card p-5 relative overflow-hidden">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Avg Resolution Time</p>
+                        <h3 class="text-3xl font-extrabold text-gray-900 mt-1">3.85 <span class="text-sm font-normal text-gray-500">hrs</span></h3>
+                        <p class="text-xs text-gray-500 mt-1">Critical Priority Avg: <span class="font-bold text-brandRed">2.87 hrs</span></p>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 text-xl">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metric 4 -->
+            <div class="glow-card p-5 relative overflow-hidden">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Avg Satisfaction</p>
+                        <h3 class="text-3xl font-extrabold text-emerald-600 mt-1">4.55 <span class="text-sm font-normal text-gray-500">/ 5.0</span></h3>
+                        <p class="text-xs text-gray-500 mt-1">Tech A Peak: <span class="font-bold text-emerald-600">4.78</span> rating</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 text-xl">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DYNAMIC INTERACTIVE PIVOT TABLE SECTION -->
+        <section class="glow-card p-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-gray-100">
+                <div>
+                    <h2 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-table-cells text-brandRed"></i>
+                        <span>Interactive PivotTable: Performance Metrics by Issue Type</span>
+                    </h2>
+                    <p class="text-xs text-gray-500">Filter or view consolidated performance metrics calculated from raw service records.</p>
+                </div>
+                <!-- Filter Selector -->
+                <div class="flex items-center gap-2">
+                    <label for="pivotFilter" class="text-xs font-semibold text-gray-600">Filter Category:</label>
+                    <select id="pivotFilter" onchange="filterPivotTable(this.value)" class="text-xs font-semibold bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-brandRed">
+                        <option value="ALL">Show All Issue Types (Grand Total)</option>
+                        <option value="Account/Login">Account / Login</option>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Network">Network</option>
+                        <option value="Printer">Printer</option>
+                        <option value="Software">Software</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Pivot Table -->
+            <div class="overflow-x-auto custom-scrollbar">
+                <table class="w-full text-left text-sm text-gray-700 border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100 text-gray-800 uppercase text-xs tracking-wider border-b border-gray-200">
+                            <th class="py-3.5 px-4 font-bold">Issue Type</th>
+                            <th class="py-3.5 px-4 font-bold text-center">Count of Service_ID</th>
+                            <th class="py-3.5 px-4 font-bold text-center">% of Total Issues</th>
+                            <th class="py-3.5 px-4 font-bold text-center">Avg Response (Mins)</th>
+                            <th class="py-3.5 px-4 font-bold text-center">Avg Resolution (Hours)</th>
+                            <th class="py-3.5 px-4 font-bold text-center">Avg Satisfaction Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pivotTableBody" class="divide-y divide-gray-100">
+                        <!-- Populated dynamically by JS -->
+                    </tbody>
+                    <tfoot>
+                        <tr id="pivotTableFoot" class="bg-gray-50 font-bold text-gray-900 border-t-2 border-gray-300">
+                            <!-- Populated dynamically by JS -->
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <!-- CHARTS GRID (2x2) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Chart 1: Issue Type Bar Chart -->
+            <div class="glow-card p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-base font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-column text-brandRed"></i>
+                            <span>1. Service Requests by Issue Type</span>
+                        </h3>
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-red-50 text-brandRed rounded-full">Primary Bottleneck</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-4">Software (32%) and Network (28%) account for 60% of all service tickets.</p>
+                </div>
+                <div class="h-64 relative">
+                    <canvas id="issueTypeChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Chart 2: Priority Donut Chart -->
+            <div class="glow-card p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-base font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-pie text-brandBlue"></i>
+                            <span>2. Average Resolution Time by Priority</span>
+                        </h3>
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-blue-50 text-brandBlue rounded-full">SLA Response</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-4">Critical tickets are resolved fastest (2.87 hrs), whereas Low priority tasks average 4.65 hrs.</p>
+                </div>
+                <div class="h-64 relative flex justify-center items-center">
+                    <canvas id="priorityChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Chart 3: Technician Bar Chart -->
+            <div class="glow-card p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-base font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-solid fa-users-gear text-purple-600"></i>
+                            <span>3. Technician Workload & Satisfaction</span>
+                        </h3>
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-purple-50 text-purple-600 rounded-full">Staff Performance</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-4">Tech E handled the highest volume (17 tickets) while Tech A maintained top rating (4.78).</p>
+                </div>
+                <div class="h-64 relative">
+                    <canvas id="technicianChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Chart 4: Correlation Scatter Plot -->
+            <div class="glow-card p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-base font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-line text-emerald-600"></i>
+                            <span>4. Resolution Time vs Customer Satisfaction</span>
+                        </h3>
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-emerald-50 text-emerald-700 rounded-full font-mono">r = -0.59 (Moderate-Strong)</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-4">Statistical proof: Longer resolution times directly cause customer satisfaction ratings to drop.</p>
+                </div>
+                <div class="h-64 relative">
+                    <canvas id="scatterChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TABLES ROW: TOP 5 LONGEST & TOP 5 HIGHEST RATED -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Table 1: Top 5 Longest Resolution Records -->
+            <div class="glow-card p-6">
+                <div class="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
+                    <h3 class="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation text-brandRed"></i>
+                        <span>Top 5 Longest Service Resolution Records</span>
+                    </h3>
+                    <span class="text-xs text-brandRed font-semibold">Resolution Escalations</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-gray-700">
+                        <thead>
+                            <tr class="bg-red-50/50 text-gray-800 text-xs uppercase border-b border-gray-200">
+                                <th class="py-2.5 px-3">Rank</th>
+                                <th class="py-2.5 px-3">Service ID</th>
+                                <th class="py-2.5 px-3 text-right">Resolution Hours</th>
+                                <th class="py-2.5 px-3 text-center">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2.5 px-3 font-bold text-brandRed">#1</td>
+                                <td class="py-2.5 px-3 font-mono font-semibold">SVC-019</td>
+                                <td class="py-2.5 px-3 text-right font-bold text-gray-900">9.2 hrs</td>
+                                <td class="py-2.5 px-3 text-center"><span class="bg-red-100 text-brandRed text-[10px] px-2 py-0.5 rounded-full font-bold">Outlier</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2.5 px-3 font-bold text-gray-500">#2</td>
+                                <td class="py-2.5 px-3 font-mono font-semibold">SVC-037</td>
+                                <td class="py-2.5 px-3 text-right font-bold text-gray-900">8.2 hrs</td>
+                                <td class="py-2.5 px-3 text-center"><span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold">Delayed</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2.5 px-3 font-bold text-gray-500">#3</td>
+                                <td class="py-2.5 px-3 font-mono font-semibold">SVC-049</td>
+                                <td class="py-2.5 px-3 text-right font-bold text-gray-900">8.0 hrs</td>
+                                <td class="py-2.5 px-3 text-center"><span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold">Delayed</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2.5 px-3 font-bold text-gray-500">#4</td>
+                                <td class="py-2.5 px-3 font-mono font-semibold">SVC-043</td>
+                                <td class="py-2.5 px-3 text-right font-bold text-gray-900">6.6 hrs</td>
+                                <td class="py-2.5 px-3 text-center"><span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold">Escalated</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2.5 px-3 font-bold text-gray-500">#5</td>
+                                <td class="py-2.5 px-3 font-mono font-semibold">SVC-006</td>
+                                <td class="py-2.5 px-3 text-right font-bold text-gray-900">6.3 hrs</td>
+                                <td class="py-2.5 px-3 text-center"><span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold">Escalated</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Table 2: Top 5 Highest-Rated Requests -->
+            <div class="glow-card p-6">
+                <div class="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
+                    <h3 class="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-award text-emerald-600"></i>
+                        <span>Top 5 Highest-Rated Service Requests</span>
+                    </h3>
+                    <span class="text-xs text-emerald-600 font-semibold">5.0 Perfect Score</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-gray-700">
+                        <thead>
+                            <tr class="bg-emerald-50/50 text-gray-800 text-xs uppercase border-b border-gray-200">
+                                <th class="py-2.5 px-3">Service ID</th>
+                                <th class="py-2.5 px-3 text-center">Satisfaction Rating</th>
+                                <th class="py-2.5 px-3 text-center">Rating Stars</th>
+                                <th class="py-2.5 px-3 text-right">User Type</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2.5 px-3 font-mono font-semibold">SVC-032</td>
+                                <td class="py-2.5 px-3 text-center font-bold text-emerald-600">5.0</td>
+                                <td class="py-2.5 px-3 text-center text-amber-400 text-xs">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="py-2.5 px-3 text-right text-xs font-medium text-gray-500">Student</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2.5 px-3 font-mono font-semibold">SVC-048</td>
+                                <td class="py-2.5 px-3 text-center font-bold text-emerald-600">5.0</td>
+                                <td class="py-2.5 px-3 text-center text-amber-400 text-xs">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="py-2.5 px-3 text-right text-xs font-medium text-gray-500">Faculty</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2.5 px-3 font-mono font-semibold">SVC-028</td>
+                                <td class="py-2.5 px-3 text-center font-bold text-emerald-600">5.0</td>
+                                <td class="py-2.5 px-3 text-center text-amber-400 text-xs">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="py-2.5 px-3 text-right text-xs font-medium text-gray-500">Student</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2.5 px-3 font-mono font-semibold">SVC-004</td>
+                                <td class="py-2.5 px-3 text-center font-bold text-emerald-600">5.0</td>
+                                <td class="py-2.5 px-3 text-center text-amber-400 text-xs">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="py-2.5 px-3 text-right text-xs font-medium text-gray-500">Staff</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2.5 px-3 font-mono font-semibold">SVC-039</td>
+                                <td class="py-2.5 px-3 text-center font-bold text-emerald-600">5.0</td>
+                                <td class="py-2.5 px-3 text-center text-amber-400 text-xs">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="py-2.5 px-3 text-right text-xs font-medium text-gray-500">Student</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- EVIDENCE-BASED RECOMMENDATIONS PANEL -->
+        <section class="glow-card p-6 border-l-4 border-l-brandBlue">
+            <div class="mb-4">
+                <h2 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                    <i class="fa-solid fa-lightbulb text-amber-500"></i>
+                    <span>Evidence-Based Strategic Recommendations</span>
+                </h2>
+                <p class="text-xs text-gray-500">Actionable technical interventions derived from empirical ticket metrics and correlation findings.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                
+                <!-- Recommendation 1 -->
+                <div class="p-4 bg-red-50/60 rounded-xl border border-red-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 text-brandRed font-bold text-sm mb-2">
+                            <span class="w-6 h-6 rounded-full bg-brandRed text-white flex items-center justify-center text-xs">1</span>
+                            <span>Response Time Optimization</span>
+                        </div>
+                        <p class="text-xs text-gray-700 leading-relaxed">
+                            <strong>Action:</strong> Implement an automated self-service portal for simple Account/Login and password resets.
+                        </p>
+                        <p class="text-xs text-gray-500 mt-2">
+                            <em>Evidence:</em> Account/Login requests average 40 minutes response time despite taking only 1.6 hours to resolve.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Recommendation 2 -->
+                <div class="p-4 bg-blue-50/60 rounded-xl border border-blue-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 text-brandBlue font-bold text-sm mb-2">
+                            <span class="w-6 h-6 rounded-full bg-brandBlue text-white flex items-center justify-center text-xs">2</span>
+                            <span>Resolution Efficiency</span>
+                        </div>
+                        <p class="text-xs text-gray-700 leading-relaxed">
+                            <strong>Action:</strong> Provide IT technicians with specialized diagnostic toolkits and targeted training for Hardware and Network fixes.
+                        </p>
+                        <p class="text-xs text-gray-500 mt-2">
+                            <em>Evidence:</em> Hardware issues take the longest average resolution (6.0 hrs), followed by Network (4.9 hrs).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Recommendation 3 -->
+                <div class="p-4 bg-emerald-50/60 rounded-xl border border-emerald-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 text-emerald-700 font-bold text-sm mb-2">
+                            <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">3</span>
+                            <span>First-Contact Resolution Focus</span>
+                        </div>
+                        <p class="text-xs text-gray-700 leading-relaxed">
+                            <strong>Action:</strong> Prioritize resolving ticket issues on first contact to avoid multi-day escalations.
+                        </p>
+                        <p class="text-xs text-gray-500 mt-2">
+                            <em>Evidence:</em> Strong correlation ($r = -0.59$) proves faster resolution directly yields higher user satisfaction.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-12 text-center text-xs text-gray-500 border-t border-gray-200 py-6">
+        <p>© 2026 Bianca Nicole Sore • BSIT Industry-Ready Portfolio Project 2</p>
+    </footer>
+
+    <!-- EMBED / SHARE MODAL -->
+    <div id="shareModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl p-6 max-w-lg w-full mx-4 shadow-2xl border border-gray-200 relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeShareModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 rounded-lg bg-brandRed text-white flex items-center justify-center text-sm font-bold">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900">Embed Dashboard in Portfolio</h3>
+            </div>
+            <p class="text-xs text-gray-600 mb-3">Copy this iframe snippet to embed this live analytics app directly into your `index.html` portfolio or website:</p>
+            
+            <div class="bg-gray-900 text-emerald-400 p-3 rounded-lg font-mono text-xs overflow-x-auto relative mb-4">
+                <pre id="iframeCode">&lt;iframe src="https://your-username.github.io/project2-analytics/" width="100%" height="700" frameborder="0" class="rounded-xl shadow-lg"&gt;&lt;/iframe&gt;</pre>
+            </div>
+
+            <div class="flex justify-end gap-2">
+                <button onclick="copyEmbedCode()" class="px-4 py-2 bg-brandBlue text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-copy"></i>
+                    <span>Copy Code</span>
+                </button>
+                <button onclick="closeShareModal()" class="px-4 py-2 bg-gray-100 text-gray-700 text-xs font-semibold rounded-lg hover:bg-gray-200 transition-colors">Close</button>
+            </div>
+            <div id="copyToast" class="hidden mt-2 text-center text-xs text-emerald-600 font-semibold">
+                <i class="fa-solid fa-circle-check"></i> Code copied to clipboard!
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC & CHARTS -->
+    <script>
+        // DATASET DEFINITION (MATCHING CASE STUDY 12 METRICS)
+        const pivotData = [
+            { type: 'Account/Login', count: 10, pct: '20%', avgResponse: 40.0, avgResolution: 1.6, avgRating: 4.7 },
+            { type: 'Hardware', count: 7, pct: '14%', avgResponse: 33.0, avgResolution: 6.0, avgRating: 4.3 },
+            { type: 'Network', count: 14, pct: '28%', avgResponse: 37.0, avgResolution: 4.9, avgRating: 4.5 },
+            { type: 'Printer', count: 3, pct: '6%', avgResponse: 39.0, avgResolution: 1.7, avgRating: 4.7 },
+            { type: 'Software', count: 16, pct: '32%', avgResponse: 34.0, avgResolution: 3.7, avgRating: 4.7 }
+        ];
+
+        // POPULATE PIVOT TABLE
+        function renderPivotTable(filter = 'ALL') {
+            const tbody = document.getElementById('pivotTableBody');
+            const tfoot = document.getElementById('pivotTableFoot');
+            tbody.innerHTML = '';
+
+            let filtered = pivotData;
+            if (filter !== 'ALL') {
+                filtered = pivotData.filter(item => item.type === filter);
+            }
+
+            filtered.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-gray-50 transition-colors";
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-semibold text-gray-900">${row.type}</td>
+                    <td class="py-3 px-4 text-center font-bold text-gray-800">${row.count}</td>
+                    <td class="py-3 px-4 text-center text-gray-600">${row.pct}</td>
+                    <td class="py-3 px-4 text-center text-brandBlue font-semibold">${row.avgResponse} mins</td>
+                    <td class="py-3 px-4 text-center text-amber-700 font-semibold">${row.avgResolution} hrs</td>
+                    <td class="py-3 px-4 text-center font-bold text-emerald-600">${row.avgRating} / 5.0</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Footer (Grand Total)
+            tfoot.innerHTML = `
+                <td class="py-3.5 px-4">Grand Total</td>
+                <td class="py-3.5 px-4 text-center">50</td>
+                <td class="py-3.5 px-4 text-center">100%</td>
+                <td class="py-3.5 px-4 text-center">36.22 mins</td>
+                <td class="py-3.5 px-4 text-center">3.85 hrs</td>
+                <td class="py-3.5 px-4 text-center text-emerald-600">4.55 / 5.0</td>
+            `;
+        }
+
+        function filterPivotTable(val) {
+            renderPivotTable(val);
+        }
+
+        // INITIALIZE CHART.JS VISUALIZATIONS
+        window.onload = function() {
+            renderPivotTable();
+
+            // Chart 1: Issue Type Bar Chart
+            const ctxIssue = document.getElementById('issueTypeChart').getContext('2d');
+            new Chart(ctxIssue, {
+                type: 'bar',
+                data: {
+                    labels: ['Hardware', 'Software', 'Network', 'Account/Login', 'Printer'],
+                    datasets: [{
+                        label: 'Number of Requests',
+                        data: [7, 16, 14, 10, 3],
+                        backgroundColor: ['#3b82f6', '#dc3545', '#0a66c2', '#8b5cf6', '#64748b'],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+
+            // Chart 2: Priority Donut Chart
+            const ctxPriority = document.getElementById('priorityChart').getContext('2d');
+            new Chart(ctxPriority, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Critical (2.87 hrs)', 'High (3.49 hrs)', 'Medium (3.97 hrs)', 'Low (4.65 hrs)'],
+                    datasets: [{
+                        data: [2.87, 3.49, 3.97, 4.65],
+                        backgroundColor: ['#dc3545', '#f97316', '#eab308', '#3b82f6'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
+                    }
+                }
+            });
+
+            // Chart 3: Technician Bar Chart
+            const ctxTech = document.getElementById('technicianChart').getContext('2d');
+            new Chart(ctxTech, {
+                type: 'bar',
+                data: {
+                    labels: ['Tech A', 'Tech B', 'Tech C', 'Tech D', 'Tech E'],
+                    datasets: [
+                        {
+                            label: 'Avg Resolution (Hours)',
+                            data: [3.03, 3.60, 3.15, 4.43, 4.09],
+                            backgroundColor: '#0a66c2'
+                        },
+                        {
+                            label: 'Avg Satisfaction Rating',
+                            data: [4.78, 4.52, 4.60, 4.61, 4.46],
+                            backgroundColor: '#dc3545'
+                        },
+                        {
+                            label: 'Count of Requests',
+                            data: [4, 9, 8, 12, 17],
+                            backgroundColor: '#10b981'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+
+            // Chart 4: Correlation Scatter Plot
+            const ctxScatter = document.getElementById('scatterChart').getContext('2d');
+            new Chart(ctxScatter, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Service Tickets (Satisfaction vs Hours)',
+                        data: [
+                            { x: 1.0, y: 4.8 }, { x: 1.2, y: 5.0 }, { x: 1.5, y: 4.6 },
+                            { x: 2.0, y: 4.5 }, { x: 2.5, y: 4.7 }, { x: 2.8, y: 4.3 },
+                            { x: 3.2, y: 4.8 }, { x: 3.5, y: 4.2 }, { x: 4.0, y: 4.5 },
+                            { x: 4.5, y: 4.0 }, { x: 5.0, y: 4.2 }, { x: 5.5, y: 3.8 },
+                            { x: 6.0, y: 3.9 }, { x: 6.3, y: 3.7 }, { x: 6.6, y: 3.5 },
+                            { x: 8.0, y: 3.4 }, { x: 8.2, y: 3.2 }, { x: 9.2, y: 3.0 }
+                        ],
+                        backgroundColor: '#0a66c2',
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `Resolution: ${context.raw.x} hrs, Rating: ${context.raw.y}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Resolution Time (Hours)' },
+                            min: 0, max: 10
+                        },
+                        y: {
+                            title: { display: true, text: 'Satisfaction Rating (1-5)' },
+                            min: 1, max: 5
+                        }
+                    }
+                }
+            });
+        };
+
+        // MODAL HANDLERS
+        function openShareModal() {
+            const modal = document.getElementById('shareModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.children[0].classList.remove('scale-95');
+                modal.children[0].classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeShareModal() {
+            const modal = document.getElementById('shareModal');
+            modal.classList.add('opacity-0');
+            modal.children[0].classList.remove('scale-100');
+            modal.children[0].classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function copyEmbedCode() {
+            const codeText = document.getElementById('iframeCode').innerText;
+            
+            // Clipboard fallback
+            const tempInput = document.createElement('textarea');
+            tempInput.value = codeText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const toast = document.getElementById('copyToast');
+            toast.classList.remove('hidden');
+            setTimeout(() => { toast.classList.add('hidden'); }, 2500);
+        }
+
+        function exportSummaryReport() {
+            const textContent = `
+===================================================================
+IT SERVICE CENTER PERFORMANCE ANALYSIS REPORT
+Student Analyst: Bianca Nicole Sore
+Institution: Datamex College of Saint Adeline
+Dataset: 50 Service Tickets
+===================================================================
+
+1. DESCRIPTIVE STATISTICS
+   • Total Tickets: 50
+   • Avg Response Time: 36.22 minutes
+   • Avg Resolution Time: 3.85 hours
+   • Avg Satisfaction Rating: 4.55 / 5.0
+   • First-Contact Resolution Rate: 58% (29 / 50 requests)
+
+2. ISSUE BREAKDOWN
+   • Software: 16 requests (32%)
+   • Network: 14 requests (28%)
+   • Account/Login: 10 requests (20%)
+   • Hardware: 7 requests (14%)
+   • Printer: 3 requests (6%)
+
+3. CORRELATION ANALYSIS
+   • Pearson Correlation (r): -0.59
+   • Interpretation: Moderate-to-strong negative correlation.
+     Faster resolution times directly yield higher customer satisfaction.
+
+4. TOP RECOMMENDATIONS
+   1. Implement automated self-service password reset tools.
+   2. Equip technicians with specialized hardware/network diagnostic tools.
+   3. Focus on first-contact resolution to minimize resolution delays.
+===================================================================
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'IT_Service_Center_Analytics_Report.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
