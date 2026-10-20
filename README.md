@@ -83,26 +83,34 @@ To run this project locally on your machine:
    ```bash
    git clone [https://github.com/your-username/your-portfolio-repo.git](https://github.com/your-username/your-portfolio-repo.git)
 
-12. Usage
+## 12. Usage
 1. Navigation: Use the top navigation menu to jump between Home, Profile, Skills, Projects, Career Plan, and Reflections.
 2. Terminal Simulator: Click inside the CLI simulator box and try running commands (e.g., help, skills, clear).
 3. Analytics Dashboards: Click the project links under Project 2 and Project 3 to view embedded data analytics.
 
-13. Testing
+---
+
+## 13. Testing
 - Cross-Browser Compatibility: Tested and verified working seamlessly across Google Chrome, Microsoft Edge, and Safari.
 - Responsive Layout: Verified using Chrome DevTools across Desktop (1920x1080), Tablet (768px), and Mobile (375px) viewports.
 - Link Validation: 100% functional hyperlinks with zero broken links or 404 errors.
 
-14. Limitations
+---
+
+## 14. Limitations
 - Static Front-End Deployment: Operates without a live backend database; database/SQL operations are simulated on the client side.
 - Build Workflow: Code updates require manual commits and pushes to GitHub to reflect on the live site.
 
-15. Future Improvements
+---
+
+## 15. Future Improvements
 - Migration to React.js for modular and component-driven architecture.
 - Integration of a Node.js / Express backend API to handle dynamic contact form submissions.
 - Implementation of a custom dark mode theme toggle switch.
 
-16. Developer & Contributors
+---
+
+## 16. Developer & Contributors
 - Developer: Bianca Nicole Sore
 - Role: Front-End Web Developer & UI/UX Designer
 - Institution: Datamex College of Saint Adeline
