@@ -58,7 +58,7 @@ h2:hover{color:#dc3545;text-shadow:0 0 15px rgba(220,53,69,0.4)}
 <body>
 <div class="bg-effects"></div>
 
-<!-- NAVBAR -->
+<!-- NAVBAR (NA-FIX NA ANG PAGKASUNOD-SUNOD) -->
 <nav class="navbar">
 <a href="#home" class="nav-logo">MyPortfolio</a>
 <ul class="nav-menu">
@@ -66,8 +66,8 @@ h2:hover{color:#dc3545;text-shadow:0 0 15px rgba(220,53,69,0.4)}
 <li><a href="#profile" class="nav-link">Profile</a></li>
 <li><a href="#skills" class="nav-link">Skills</a></li>
 <li><a href="#projects" class="nav-link">Projects</a></li>
-<li><a href="#problem-solving" class="nav-link">Problem-Solving</a></li>
 <li><a href="#networking-sec" class="nav-link">Networking & Sec</a></li>
+<li><a href="#problem-solving" class="nav-link">Problem-Solving</a></li>
 <li><a href="#employability" class="nav-link">Employability</a></li>
 <li><a href="#reflection" class="nav-link">Reflection</a></li>
 <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -137,7 +137,7 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 <!-- 3. PROJECTS -->
 <section id="projects" class="section">
 <h2>3. Projects</h2>
-<p class="section-intro">Demonstrating practical software development, data analytics, and web applications.</p>
+<p class="section-intro">Demonstrating practical software development and web applications.</p>
 <div class="grid-2">
 <div class="glow-card">
 <h3 style="color:#dc3545;margin-bottom:10px">BSIT Industry-Ready Portfolio</h3>
@@ -149,20 +149,10 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 <p style="color:#555;line-height:1.6;margin-bottom:12px">A web-based system for managing student records, tracking coursework, and executing standard CRUD operations on database structures.</p>
 <span style="font-size:0.85rem;background:#e9ecef;padding:4px 8px;border-radius:4px;font-weight:600">HTML / CSS / JS / Database</span>
 </div>
-<div class="glow-card">
-<h3 style="color:#198754;margin-bottom:10px">IT Service Center Performance Analysis</h3>
-<p style="color:#555;line-height:1.6;margin-bottom:12px">A data analytics case study evaluating 50 IT service tickets. Utilized PivotTables, correlation analysis (r = -0.59), and chart visualizations to optimize response times and user satisfaction.</p>
-<span style="font-size:0.85rem;background:#e9ecef;padding:4px 8px;border-radius:4px;font-weight:600">Excel / PivotTables / Data Analytics</span>
-</div>
-<div class="glow-card">
-<h3 style="color:#6f42c1;margin-bottom:10px">UI/UX Wireframing & Prototyping</h3>
-<p style="color:#555;line-height:1.6;margin-bottom:12px">Interface prototypes developed in Figma focusing on visual hierarchy, accessibility, and modern minimalist design systems.</p>
-<span style="font-size:0.85rem;background:#e9ecef;padding:4px 8px;border-radius:4px;font-weight:600">Figma / UI Design</span>
-</div>
 </div>
 </section>
 
-<!-- NEW SECTION: NETWORKING & CYBERSECURITY DEMONSTRATION -->
+<!-- 4. NETWORKING & CYBERSECURITY DEMONSTRATION -->
 <section id="networking-sec" class="section">
 <h2>4. Basic Networking, Troubleshooting & Cybersecurity</h2>
 <p class="section-intro">Interactive demonstration of CLI diagnostics and cybersecurity awareness practices.</p>
@@ -209,20 +199,13 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 
 <!-- 5. PROBLEM-SOLVING -->
 <section id="problem-solving" class="section">
-<h2>5. Problem-Solving & Analytical Case Studies</h2>
-<p class="section-intro">Real-world technical troubleshooting and empirical data analysis.</p>
+<h2>5. Problem-Solving</h2>
+<p class="section-intro">Real-world technical troubleshooting.</p>
 <div class="glow-card">
 <h3 style="color:#dc3545;margin-bottom:10px">Case Study 1: Resolving Windows Setup Loop via Registry</h3>
 <p style="color:#555;line-height:1.6">
 <strong>Issue:</strong> Encountered a persistent system configuration error loop during an operating system reinstallation on an MSI laptop.<br>
 <strong>Resolution:</strong> Utilized Command Prompt at setup to launch the Windows Registry Editor (`regedit`), navigated to `ChildCompletion`, modified the setup execution status value, and cleared the boot cycle error to complete setup successfully.
-</p>
-</div>
-<div class="glow-card">
-<h3 style="color:#0a66c2;margin-bottom:10px">Case Study 2: IT Service Center Performance & Correlation Analysis</h3>
-<p style="color:#555;line-height:1.6">
-<strong>Issue:</strong> Analyzing 50 school IT tickets to identify bottlenecks in response times and customer satisfaction.<br>
-<strong>Findings & Resolution:</strong> Identified Software and Network issues as 60% of all requests. Calculated a moderate-to-strong negative correlation (r = -0.59) between resolution time and satisfaction rating, proving faster resolution directly drives higher user rating. Recommended automated password reset systems and dedicated network toolkits.
 </p>
 </div>
 </section>
@@ -283,7 +266,7 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 <p class="section-intro">Key takeaways from the BSIT program and portfolio development process.</p>
 <div class="glow-card">
 <p style="line-height:1.7;color:#444;">
-Building this industry-ready portfolio allowed me to consolidate the core competencies acquired throughout my BSIT program at Datamex College of Saint Adeline. Connecting initial wireframing in Figma to front-end implementation, Git version control, and GitHub Pages hosting reinforced the importance of structured development. Integrating troubleshooting experiences and empirical data analytics into technical portfolio evidence highlighted the role of analytical problem-solving alongside core programming skills.
+Building this industry-ready portfolio allowed me to consolidate the core competencies acquired throughout my BSIT program at Datamex College of Saint Adeline. Connecting initial wireframing in Figma to front-end implementation, Git version control, and GitHub Pages hosting reinforced the importance of structured development. Integrating troubleshooting experiences into technical portfolio evidence highlighted the role of analytical problem-solving alongside core programming skills.
 </p>
 </div>
 </section>
@@ -310,15 +293,4 @@ Building this industry-ready portfolio allowed me to consolidate the core compet
 <script>
 function runCmd(cmd) {
   const output = document.getElementById('term-output');
-  if (cmd === 'ping') {
-    output.innerText = "C:\\Users\\BiancaNicole> ping google.com\n\nPinging google.com [142.250.190.46] with 32 bytes of data:\nReply from 142.250.190.46: bytes=32 time=18ms TTL=117\nReply from 142.250.190.46: bytes=32 time=16ms TTL=117\nReply from 142.250.190.46: bytes=32 time=17ms TTL=117\n\nPing statistics: Packets: Sent = 3, Received = 3, Lost = 0 (0% loss).\nSTATUS: Network Connection Active & Stable.";
-  } else if (cmd === 'ipconfig') {
-    output.innerText = "C:\\Users\\BiancaNicole> ipconfig /all\n\nWindows IP Configuration\n   Host Name . . . . . . . . . . . : BIANCA-MSI-LAPTOP\n   Primary Dns Suffix  . . . . . . :\n\nWireless LAN adapter Wi-Fi:\n   IPv4 Address. . . . . . . . . . : 192.168.1.15(Preferred)\n   Subnet Mask . . . . . . . . . . : 255.255.255.0\n   Default Gateway . . . . . . . . : 192.168.1.1\n   DNS Servers . . . . . . . . . . : 8.8.8.8, 8.8.4.4\nSTATUS: Local IP Config Verified.";
-  } else if (cmd === 'flushdns') {
-    output.innerText = "C:\\Users\\BiancaNicole> ipconfig /flushdns\n\nWindows IP Configuration\n\nSuccessfully flushed the DNS Resolver Cache.\nSTATUS: DNS Cache cleared. Ready for fresh resolution.";
-  }
-}
-</script>
-
-</body>
-</html>
+  if (cmd
