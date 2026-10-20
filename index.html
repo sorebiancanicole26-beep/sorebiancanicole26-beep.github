@@ -58,7 +58,7 @@ h2:hover{color:#dc3545;text-shadow:0 0 15px rgba(220,53,69,0.4)}
 <body>
 <div class="bg-effects"></div>
 
-<!-- NAVBAR (NA-FIX NA ANG PAGKASUNOD-SUNOD) -->
+<!-- NAVBAR -->
 <nav class="navbar">
 <a href="#home" class="nav-logo">MyPortfolio</a>
 <ul class="nav-menu">
@@ -148,6 +148,13 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 <h3 style="color:#0a66c2;margin-bottom:10px">Student Management System</h3>
 <p style="color:#555;line-height:1.6;margin-bottom:12px">A web-based system for managing student records, tracking coursework, and executing standard CRUD operations on database structures.</p>
 <span style="font-size:0.85rem;background:#e9ecef;padding:4px 8px;border-radius:4px;font-weight:600">HTML / CSS / JS / Database</span>
+</div>
+<div class="glow-card" style="grid-column: 1 / -1;">
+<h3 style="color:#198754;margin-bottom:10px">Campus WiFi Performance Analysis Dashboard</h3>
+<p style="color:#555;line-height:1.6;margin-bottom:12px">A data analytics specialization project evaluating 50 campus WiFi records, location bottlenecks, user distributions, and a strong negative correlation (r = -0.748) between downtime and user satisfaction.</p>
+<span style="font-size:0.85rem;background:#e9ecef;padding:4px 8px;border-radius:4px;font-weight:600;display:inline-block;margin-bottom:12px">Excel / Data Analytics / Chart.js</span>
+<br>
+<a href="project3-wifi-dashboard.html" target="_blank" class="btn btn-outline" style="display:inline-block">View WiFi Analytics Dashboard 📶</a>
 </div>
 </div>
 </section>
@@ -293,4 +300,15 @@ Building this industry-ready portfolio allowed me to consolidate the core compet
 <script>
 function runCmd(cmd) {
   const output = document.getElementById('term-output');
-  if (cmd
+  if (cmd === 'ping') {
+    output.innerText = "C:\\Users\\BiancaNicole> ping google.com\n\nPinging google.com [142.250.190.46] with 32 bytes of data:\nReply from 142.250.190.46: bytes=32 time=18ms TTL=117\nReply from 142.250.190.46: bytes=32 time=16ms TTL=117\nReply from 142.250.190.46: bytes=32 time=17ms TTL=117\n\nPing statistics: Packets: Sent = 3, Received = 3, Lost = 0 (0% loss).\nSTATUS: Network Connection Active & Stable.";
+  } else if (cmd === 'ipconfig') {
+    output.innerText = "C:\\Users\\BiancaNicole> ipconfig /all\n\nWindows IP Configuration\n   Host Name . . . . . . . . . . . : BIANCA-MSI-LAPTOP\n   Primary Dns Suffix  . . . . . . :\n\nWireless LAN adapter Wi-Fi:\n   IPv4 Address. . . . . . . . . . : 192.168.1.15(Preferred)\n   Subnet Mask . . . . . . . . . . : 255.255.255.0\n   Default Gateway . . . . . . . . : 192.168.1.1\n   DNS Servers . . . . . . . . . . : 8.8.8.8, 8.8.4.4\nSTATUS: Local IP Config Verified.";
+  } else if (cmd === 'flushdns') {
+    output.innerText = "C:\\Users\\BiancaNicole> ipconfig /flushdns\n\nWindows IP Configuration\n\nSuccessfully flushed the DNS Resolver Cache.\nSTATUS: DNS Cache cleared. Ready for fresh resolution.";
+  }
+}
+</script>
+
+</body>
+</html>
