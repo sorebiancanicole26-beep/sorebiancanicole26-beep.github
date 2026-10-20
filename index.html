@@ -8,6 +8,8 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;scroll-behavior:smooth}
 body{background:#f8f9fa;color:#212529;padding-top:70px;overflow-x:hidden}
 .bg-effects{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;background:radial-gradient(circle at 20% 30%,rgba(255,0,0,0.12) 0%,transparent 40%),radial-gradient(circle at 80% 70%,rgba(0,102,255,0.12) 0%,transparent 40%)}
+
+/* NAVBAR */
 .navbar{position:fixed;top:0;left:0;width:100%;height:70px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid #e9ecef;display:flex;justify-content:space-between;align-items:center;padding:0 24px;z-index:1000}
 .nav-logo{font-size:1.3rem;font-weight:700;color:#dc3545;text-decoration:none;transition:.3s}
 .nav-logo:hover{text-shadow:0 0 12px rgba(220,53,69,0.8);transform:scale(1.03)}
@@ -16,12 +18,16 @@ body{background:#f8f9fa;color:#212529;padding-top:70px;overflow-x:hidden}
 .nav-link::after{content:'';position:absolute;width:0;height:2px;bottom:0;left:0;background:#dc3545;box-shadow:0 0 8px #dc3545;transition:.3s}
 .nav-link:hover,.nav-link:focus{color:#dc3545;text-shadow:0 0 10px rgba(220,53,69,0.6)}
 .nav-link:hover::after{width:100%}
+
+/* BUTTONS */
 .btn{padding:6px 14px;font-size:0.85rem;font-weight:600;border-radius:6px;text-decoration:none;transition:.2s}
 .btn-outline{color:#dc3545;border:1px solid #dc3545}
 .btn-outline:hover{background:#dc3545;color:#fff;box-shadow:0 0 15px rgba(220,53,69,0.6)}
 .btn-primary{color:#fff;background:#0a66c2;border:1px solid #0a66c2}
 .btn-primary:hover{background:#084e96;box-shadow:0 0 15px rgba(10,102,194,0.6)}
-.section{min-height:80vh;padding:100px 20px 60px 20px;max-width:1100px;margin:0 auto;border-bottom:1px solid #dee2e6;display:flex;flex-direction:column;justify-content:center}
+
+/* STANDARDIZED SECTIONS */
+.section{padding:80px 20px 60px 20px;max-width:1100px;margin:0 auto;border-bottom:1px solid #dee2e6;display:flex;flex-direction:column;justify-content:center}
 .hero-container{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
 .hero-text{flex:1;min-width:280px}
 .profile-pic{width:240px;height:240px;border-radius:50%;object-fit:cover;border:4px solid #dc3545;box-shadow:0 0 25px rgba(220,53,69,0.4),0 0 15px rgba(0,102,255,0.3);transition:.3s}
@@ -32,31 +38,46 @@ h1{font-size:3rem;font-weight:800;color:#1a1a1a;margin-bottom:15px}
 h2{font-size:2.2rem;margin-bottom:8px;color:#1a1a1a;transition:.3s}
 h2:hover{color:#dc3545;text-shadow:0 0 15px rgba(220,53,69,0.4)}
 .section-intro{font-size:1.05rem;color:#0a66c2;font-weight:600;margin-bottom:20px;line-height:1.5}
-.glow-card{background:#fff;padding:24px;border-radius:10px;border:1px solid #e9ecef;box-shadow:0 4px 12px rgba(0,0,0,0.04);transition:.3s;margin-bottom:15px}
+
+/* CARDS & GRIDS */
+.glow-card{background:#fff;padding:24px;border-radius:10px;border:1px solid #e9ecef;box-shadow:0 4px 12px rgba(0,0,0,0.04);transition:.3s;margin-bottom:15px;width:100%}
 .glow-card:hover{transform:translateY(-4px);border-color:rgba(220,53,69,0.4);box-shadow:0 8px 25px rgba(220,53,69,0.15),0 0 15px rgba(0,102,255,0.1)}
 .hero-btns{display:flex;gap:15px;margin-top:20px;flex-wrap:wrap}
 .btn-p{background:#dc3545;color:#fff;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:600;box-shadow:0 4px 12px rgba(220,53,69,0.3);transition:.2s}
 .btn-p:hover{background:#b02a37;box-shadow:0 0 20px rgba(220,53,69,0.6)}
 .btn-o{background:0 0;color:#333;border:2px solid #ccc;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:600;transition:.2s}
 .btn-o:hover{border-color:#dc3545;color:#dc3545;box-shadow:0 0 15px rgba(220,53,69,0.4)}
-.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:10px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:10px;width:100%}
 
-/* TERMINAL & SECURITY DEMO STYLES */
-.terminal-window{background:#0d1117;color:#58a6ff;padding:18px;border-radius:8px;font-family:'Courier New',Courier,monospace;font-size:0.88rem;box-shadow:0 4px 15px rgba(0,0,0,0.4);margin-top:10px}
-.terminal-header{color:#8b949e;border-bottom:1px solid #30363d;padding-bottom:6px;margin-bottom:10px;font-weight:bold}
+/* TABLES & LOGS */
+.table-container{width:100%;overflow-x:auto;margin-top:15px;border-radius:8px;background:#ffffff;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.skills-table,.ai-table{width:100%;border-collapse:collapse;font-size:0.9rem;text-align:left}
+.skills-table th,.ai-table th{background-color:#f8f9fa;color:#333;padding:12px 16px;font-weight:600;border-bottom:2px solid #e2e8f0}
+.skills-table td,.ai-table td{padding:12px 16px;border-bottom:1px solid #edf2f7;color:#555}
+.skills-table tr:hover,.ai-table tr:hover{background-color:#f8fafc}
+
+/* TERMINAL SIMULATOR STYLES */
+.terminal-glow-card{background:#ffffff;border-radius:12px;border:1px solid rgba(10,102,194,0.2);box-shadow:0 10px 25px -5px rgba(10,102,194,0.15),0 8px 10px -6px rgba(220,53,69,0.1);padding:20px;width:100%}
+.terminal-window{background:#0f172a;border-radius:8px;overflow:hidden;border:1px solid #1e293b;box-shadow:0 4px 15px rgba(0,0,0,0.4)}
+.terminal-header{background:#1e293b;padding:8px 12px;color:#8b949e;font-size:0.8rem;font-family:monospace;display:flex;justify-content:space-between;align-items:center}
+.terminal-body{padding:16px;font-family:'Courier New',Courier,monospace;font-size:0.88rem;height:320px;overflow-y:auto;color:#e2e8f0;line-height:1.5}
 .cmd-btn{background:#21262d;color:#c9d1d9;border:1px solid #30363d;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:0.8rem;margin-right:6px;margin-bottom:8px;transition:.2s}
 .cmd-btn:hover{background:#30363d;color:#58a6ff;border-color:#58a6ff}
 .term-output{white-space:pre-wrap;color:#7ee787;min-height:80px;line-height:1.4}
 .sec-item{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:0.95rem;color:#444}
 .sec-item input[type="checkbox"]{width:18px;height:18px;accent-color:#dc3545;cursor:pointer}
 
-/* CERTIFICATE IMAGE PLACEHOLDER STYLES */
+/* CERTIFICATES & CHECKLIST */
 .cert-grid-5{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:12px}
 .cert-box{border:2px dashed #ced4da;border-radius:8px;padding:8px;text-align:center;background:#f8f9fa;transition:.3s}
 .cert-box:hover{border-color:#dc3545;background:#fff;transform:translateY(-2px)}
 .cert-img{width:100%;height:100px;object-fit:cover;border-radius:4px}
+.checklist-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:15px}
+.checklist-item{background:#ffffff;border-radius:8px;padding:12px 16px;box-shadow:0 2px 6px rgba(0,0,0,0.05);border-left:4px solid #198754;display:flex;align-items:center;gap:10px}
+.checklist-item span.icon{color:#198754;font-weight:bold;font-size:1.1rem}
+.checklist-item span.text{color:#333;font-size:0.9rem;font-weight:500}
 
-/* FOOTER STYLE */
+/* FOOTER */
 footer{text-align:center;padding:30px 20px;font-size:0.9rem;color:#666;font-weight:500}
 </style>
 </head>
@@ -71,9 +92,9 @@ footer{text-align:center;padding:30px 20px;font-size:0.9rem;color:#666;font-weig
 <li><a href="#profile" class="nav-link">Profile</a></li>
 <li><a href="#skills" class="nav-link">Skills</a></li>
 <li><a href="#projects" class="nav-link">Projects</a></li>
+<li><a href="#terminal" class="nav-link">Terminal</a></li>
 <li><a href="#networking-sec" class="nav-link">Networking & Sec</a></li>
 <li><a href="#problem-solving" class="nav-link">Problem-Solving</a></li>
-<li><a href="#employability" class="nav-link">Employability</a></li>
 <li><a href="#reflection" class="nav-link">Reflection</a></li>
 <li><a href="#contact" class="nav-link">Contact</a></li>
 <li style="display:flex;gap:8px;margin-left:10px">
@@ -143,38 +164,6 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 <section id="skills-inventory" class="section">
   <h2>Skills Inventory Template</h2>
   <p class="section-intro">Comprehensive summary of technical competencies, skill levels, and portfolio project evidence.</p>
-
-  <style>
-    .table-container {
-      width: 100%;
-      overflow-x: auto;
-      margin-top: 15px;
-      border-radius: 8px;
-      background: #ffffff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .skills-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      text-align: left;
-    }
-    .skills-table th {
-      background-color: #f8f9fa;
-      color: #333333;
-      padding: 12px 16px;
-      font-weight: 600;
-      border-bottom: 2px solid #e2e8f0;
-    }
-    .skills-table td {
-      padding: 12px 16px;
-      border-bottom: 1px solid #edf2f7;
-      color: #555555;
-    }
-    .skills-table tr:hover {
-      background-color: #f8fafc;
-    }
-  </style>
 
   <div class="table-container">
     <table class="skills-table">
@@ -270,409 +259,52 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
   </div>
 </section>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLI Terminal Simulator - Bianca Nicole Portfolio</title>
-    <!-- Tailwind CSS for modern responsive utility styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandRed: '#dc3545',
-                        brandBlue: '#0a66c2',
-                        brandBlueHover: '#0d6efd',
-                    },
-                    fontFamily: {
-                        mono: ['Fira Code', 'Consolas', 'Courier New', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Red/Blue Glow Custom Styles */
-        .terminal-glow-card {
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid rgba(10, 102, 194, 0.2);
-            box-shadow: 0 10px 25px -5px rgba(10, 102, 194, 0.15), 
-                        0 8px 10px -6px rgba(220, 53, 69, 0.1);
-            transition: all 0.3s ease;
-        }
-        .terminal-glow-card:hover {
-            box-shadow: 0 14px 30px -5px rgba(10, 102, 194, 0.25), 
-                        0 10px 12px -5px rgba(220, 53, 69, 0.18);
-        }
+<!-- INTERACTIVE CLI TERMINAL SECTION -->
+<section id="terminal" class="section">
+    <h2>Interactive CLI Terminal</h2>
+    <p class="section-intro">Simulated Command Prompt for system diagnostics, project details, and skills verification.</p>
+    
+    <div class="terminal-glow-card">
+        <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div style="font-size: 0.85rem; color: #555;">⚡ Quick Touch Commands:</div>
+            <div style="font-size: 0.8rem; font-family: monospace; background: #e2e8f0; padding: 4px 10px; border-radius: 4px;">Host: <strong style="color: #0a66c2;">BIANCA-MSI-LAPTOP</strong></div>
+        </div>
         
-        /* Terminal Custom Scrollbar */
-        .terminal-body::-webkit-scrollbar {
-            width: 8px;
-        }
-        .terminal-body::-webkit-scrollbar-track {
-            background: #0f172a;
-            border-bottom-right-radius: 8px;
-        }
-        .terminal-body::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        .terminal-body::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
-
-        /* Pulsing Terminal Cursor */
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 1.1em;
-            background-color: #38bdf8;
-            vertical-align: middle;
-            animation: blink 1s infinite;
-        }
-        @keyframes blink {
-            0%, 49% { opacity: 1; }
-            50%, 100% { opacity: 0; }
-        }
-
-        /* Button Glow Accent */
-        .btn-glow {
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-        .btn-glow:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(10, 102, 194, 0.2);
-        }
-        .btn-glow:active {
-            transform: translateY(0);
-        }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen p-4 sm:p-6 lg:p-10 flex flex-col items-center justify-center">
-
-    <!-- MAIN TERMINAL CONTAINER CONTAINER CARD -->
-    <div class="w-full max-w-4xl terminal-glow-card p-4 sm:p-6 my-auto">
-        
-        <!-- SECTION TITLE & INTRO -->
-        <div class="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-            <div>
-                <h2 class="text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-[#dc3545] inline-block shadow-[0_0_8px_#dc3545]"></span>
-                    Interactive CLI Terminal
-                </h2>
-                <p class="text-xs sm:text-sm text-slate-500 mt-1">
-                    Simulated Command Prompt for system diagnostics, project details, and skills verification.
-                </p>
-            </div>
-            <div class="text-xs font-mono bg-slate-100 text-slate-600 px-3 py-1.5 rounded-md border border-slate-200 self-start sm:self-auto">
-                Host: <span class="text-[#0a66c2] font-semibold">BIANCA-MSI-LAPTOP</span>
-            </div>
+        <div style="margin-bottom: 12px; display: flex; gap: 6px; flex-wrap: wrap;">
+            <button onclick="runQuickCommand('help')" class="cmd-btn">help</button>
+            <button onclick="runQuickCommand('whoami')" class="cmd-btn">whoami</button>
+            <button onclick="runQuickCommand('skills')" class="cmd-btn">skills</button>
+            <button onclick="runQuickCommand('projects')" class="cmd-btn">projects</button>
+            <button onclick="runQuickCommand('sysinfo')" class="cmd-btn">sysinfo</button>
+            <button onclick="runQuickCommand('contact')" class="cmd-btn">contact</button>
+            <button onclick="runQuickCommand('clear')" class="cmd-btn" style="color: #dc3545;">clear</button>
         </div>
 
-        <!-- QUICK COMMAND BUTTONS FOR TOUCH / MOBILE USERS -->
-        <div class="mb-3">
-            <div class="text-xs font-medium text-slate-500 mb-2 flex items-center gap-1">
-                <span>⚡ Quick Touch Commands:</span>
+        <div class="terminal-window" onclick="focusTerminalInput()">
+            <div class="terminal-header">
+                <div><span>🔴 🟡 🟢</span> &nbsp; BIANCA-MSI-LAPTOP - Command Prompt</div>
+                <div style="color: #4ade80;">● ONLINE</div>
             </div>
-            <div class="flex flex-wrap gap-1.5 sm:gap-2">
-                <button onclick="runQuickCommand('help')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">help</button>
-                <button onclick="runQuickCommand('whoami')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">whoami</button>
-                <button onclick="runQuickCommand('skills')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">skills</button>
-                <button onclick="runQuickCommand('projects')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">projects</button>
-                <button onclick="runQuickCommand('sysinfo')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">sysinfo</button>
-                <button onclick="runQuickCommand('contact')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-slate-100 hover:bg-[#0a66c2] hover:text-white border border-slate-200 text-slate-700">contact</button>
-                <button onclick="runQuickCommand('matrix')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-emerald-50 hover:bg-emerald-600 hover:text-white border border-emerald-200 text-emerald-700">matrix</button>
-                <button onclick="runQuickCommand('clear')" class="btn-glow px-2.5 py-1 text-xs font-mono rounded bg-red-50 hover:bg-[#dc3545] hover:text-white border border-red-200 text-[#dc3545]">clear</button>
-            </div>
-        </div>
-
-        <!-- TERMINAL WINDOW FRAME -->
-        <div class="rounded-lg overflow-hidden border border-slate-800 shadow-2xl bg-[#0f172a]" onclick="focusTerminalInput()">
-            
-            <!-- TERMINAL WINDOW HEADER -->
-            <div class="bg-slate-900 px-4 py-2.5 flex items-center justify-between border-b border-slate-800 select-none">
-                <!-- Mac / Windows Controls -->
-                <div class="flex items-center space-x-2">
-                    <span class="w-3 h-3 rounded-full bg-red-500 inline-block opacity-80 hover:opacity-100 cursor-pointer"></span>
-                    <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block opacity-80 hover:opacity-100 cursor-pointer"></span>
-                    <span class="w-3 h-3 rounded-full bg-green-500 inline-block opacity-80 hover:opacity-100 cursor-pointer"></span>
-                </div>
-                <!-- Title Bar -->
-                <div class="text-xs font-mono text-slate-400 font-medium truncate px-2">
-                    BIANCA-MSI-LAPTOP - Command Prompt
-                </div>
-                <!-- Status Badge -->
-                <div class="flex items-center space-x-1.5">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span class="text-[10px] font-mono text-slate-400 hidden sm:inline">ONLINE</span>
-                </div>
-            </div>
-
-            <!-- TERMINAL BODY CONTENT -->
-            <div id="terminal-body" class="terminal-body p-4 font-mono text-xs sm:text-sm h-80 sm:h-96 overflow-y-auto text-slate-200 leading-relaxed">
-                
-                <!-- Welcome Banner -->
-                <div class="mb-4 text-slate-400">
-                    <pre class="text-[10px] sm:text-xs text-[#0a66c2] font-bold leading-tight select-none mb-2">
+            <div id="terminal-body" class="terminal-body">
+                <div style="color: #94a3b8; margin-bottom: 12px;">
+                    <pre style="color: #0a66c2; font-weight: bold; font-size: 0.75rem;">
  ____  _____    _    _   _  ____    _    
 | __ )|_   _|  / \  | \ | |/ ___|  / \   
 |  _ \  | |   / _ \ |  \| | |     / _ \  
 | |_) | | |  / ___ \| |\  | |___ / ___ \ 
-|____/  |_| /_/   \_\_| \_|\____/_/   \_\
-                    </pre>
-                    <p class="text-emerald-400 font-semibold">BSIT Academic Portfolio Terminal v2.5.0</p>
-                    <p>Type <span class="text-yellow-300 font-bold">'help'</span> to see a list of available diagnostic commands.</p>
-                    <p class="text-slate-500 text-[11px] mt-1">System initialized: Windows 11 Home [Build 22631.3007] on BIANCA-MSI-LAPTOP</p>
-                    <p class="text-slate-600">--------------------------------------------------------------------------------</p>
+|____/  |_| /_/   \_\_| \_|\____/_/   \_\</pre>
+                    <p style="color: #4ade80; font-weight: 600;">BSIT Academic Portfolio Terminal v2.5.0</p>
+                    <p>Type <span style="color: #fde047; font-weight: bold;">'help'</span> to see a list of available diagnostic commands.</p>
                 </div>
-
-                <!-- DYNAMIC OUTPUT AREA -->
                 <div id="terminal-output"></div>
-
-                <!-- ACTIVE PROMPT INPUT LINE -->
-                <div class="flex items-center flex-wrap mt-2" id="prompt-line">
-                    <span class="text-emerald-400 font-semibold mr-1">bianca@BIANCA-MSI-LAPTOP</span>
-                    <span class="text-slate-400 mr-1">:</span>
-                    <span class="text-[#0a66c2] font-semibold mr-2">~$</span>
-                    <div class="flex-1 flex items-center min-w-[120px]">
-                        <input 
-                            type="text" 
-                            id="terminal-input" 
-                            class="bg-transparent border-none outline-none text-slate-100 w-full font-mono focus:ring-0 p-0 m-0"
-                            autocomplete="off"
-                            spellcheck="false"
-                            autofocus
-                        />
-                    </div>
+                <div style="display: flex; align-items: center; margin-top: 8px;">
+                    <span style="color: #4ade80; margin-right: 6px;">bianca@BIANCA-MSI-LAPTOP:~$</span>
+                    <input type="text" id="terminal-input" style="background: transparent; border: none; outline: none; color: #fff; font-family: monospace; width: 100%; font-size: 0.88rem;" autocomplete="off" spellcheck="false" autofocus />
                 </div>
-
             </div>
         </div>
-
-        <!-- FOOTER TIP -->
-        <div class="mt-3 flex items-center justify-between text-[11px] text-slate-400 font-mono px-1">
-            <span>💡 Tip: Use <kbd class="px-1.5 py-0.5 bg-slate-100 text-slate-700 rounded border border-slate-200">↑</kbd> <kbd class="px-1.5 py-0.5 bg-slate-100 text-slate-700 rounded border border-slate-200">↓</kbd> keys for command history.</span>
-            <span class="hidden sm:inline">Datamex College of Saint Adeline</span>
-        </div>
-
     </div>
-
-    <!-- TERMINAL INTERACTIVE SCRIPT -->
-    <script>
-        // System Data Definitions
-        const COMMAND_HISTORY = [];
-        let historyIndex = -1;
-
-        const terminalOutput = document.getElementById('terminal-output');
-        const terminalInput = document.getElementById('terminal-input');
-        const terminalBody = document.getElementById('terminal-body');
-
-        // Focus input automatically
-        function focusTerminalInput() {
-            terminalInput.focus();
-        }
-
-        // Auto-scroll terminal to bottom
-        function scrollToBottom() {
-            terminalBody.scrollTop = terminalBody.scrollHeight;
-        }
-
-        // Run quick command from buttons
-        function runQuickCommand(cmd) {
-            terminalInput.value = cmd;
-            processCommand(cmd);
-            terminalInput.value = '';
-            focusTerminalInput();
-        }
-
-        // Keyboard navigation for command history & enter execution
-        terminalInput.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                const command = this.value.trim();
-                processCommand(command);
-                if (command !== '') {
-                    COMMAND_HISTORY.push(command);
-                    historyIndex = COMMAND_HISTORY.length;
-                }
-                this.value = '';
-            } else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                if (COMMAND_HISTORY.length > 0 && historyIndex > 0) {
-                    historyIndex--;
-                    this.value = COMMAND_HISTORY[historyIndex];
-                }
-            } else if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                if (historyIndex < COMMAND_HISTORY.length - 1) {
-                    historyIndex++;
-                    this.value = COMMAND_HISTORY[historyIndex];
-                } else {
-                    historyIndex = COMMAND_HISTORY.length;
-                    this.value = '';
-                }
-            }
-        });
-
-        // Command Processor Engine
-        function processCommand(rawInput) {
-            const input = rawInput.trim();
-            const lowerCmd = input.toLowerCase();
-
-            // Print the executed command prompt line
-            const commandLine = document.createElement('div');
-            commandLine.className = 'flex items-center flex-wrap my-1';
-            commandLine.innerHTML = `
-                <span class="text-emerald-400 font-semibold mr-1">bianca@BIANCA-MSI-LAPTOP</span>
-                <span class="text-slate-400 mr-1">:</span>
-                <span class="text-[#0a66c2] font-semibold mr-2">~$</span>
-                <span class="text-slate-100">${escapeHtml(rawInput)}</span>
-            `;
-            terminalOutput.appendChild(commandLine);
-
-            if (input === '') {
-                scrollToBottom();
-                return;
-            }
-
-            // Command Handlers
-            const responseContainer = document.createElement('div');
-            responseContainer.className = 'mb-3 mt-1 text-slate-300';
-
-            switch(lowerCmd) {
-                case 'help':
-                    responseContainer.innerHTML = `
-                        <p class="text-yellow-300 font-semibold mb-1">Available System Commands:</p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-xs">
-                            <div><span class="text-cyan-400 font-bold">whoami</span> - Display developer profile & program</div>
-                            <div><span class="text-cyan-400 font-bold">skills</span> - List core technical competencies</div>
-                            <div><span class="text-cyan-400 font-bold">projects</span> - View BSIT portfolio project list</div>
-                            <div><span class="text-cyan-400 font-bold">sysinfo</span> - Display MSI laptop system diagnostics</div>
-                            <div><span class="text-cyan-400 font-bold">contact</span> - Show professional contact details</div>
-                            <div><span class="text-cyan-400 font-bold">date</span> - Display current local system timestamp</div>
-                            <div><span class="text-cyan-400 font-bold">matrix</span> - Launch visual matrix terminal stream</div>
-                            <div><span class="text-cyan-400 font-bold">clear / cls</span> - Clear terminal screen output</div>
-                        </div>
-                    `;
-                    break;
-
-                case 'whoami':
-                    responseContainer.innerHTML = `
-                        <div class="border-l-2 border-[#0a66c2] pl-3 py-1">
-                            <p><span class="text-slate-400">Name:</span> <strong class="text-white">Bianca Nicole Sore</strong></p>
-                            <p><span class="text-slate-400">Program:</span> Bachelor of Science in Information Technology (BSIT)</p>
-                            <p><span class="text-slate-400">Institution:</span> Datamex College of Saint Adeline</p>
-                            <p><span class="text-slate-400">Specialization:</span> <span class="text-cyan-300">Front-End Web Development & UI/UX Design</span></p>
-                            <p><span class="text-slate-400">Status:</span> Industry-Ready Portfolio Candidate</p>
-                        </div>
-                    `;
-                    break;
-
-                case 'skills':
-                    responseContainer.innerHTML = `
-                        <p class="text-emerald-400 font-semibold mb-1">Technical Skills Inventory:</p>
-                        <ul class="list-disc list-inside space-y-1 text-xs">
-                            <li><span class="text-white font-bold">Web Development:</span> HTML5, CSS3 (Responsive Design, Red/Blue Glow Effects), JavaScript (ES6+)</li>
-                            <li><span class="text-white font-bold">UI/UX Design:</span> Figma Wireframing, User Flow Design, Prototyping</li>
-                            <li><span class="text-white font-bold">Troubleshooting & CLI:</span> Windows Registry Fixes (<code class="text-yellow-300">ChildCompletion</code>), Network Commands (<code class="text-yellow-300">ipconfig</code>, <code class="text-yellow-300">flushdns</code>)</li>
-                            <li><span class="text-white font-bold">Data Analytics:</span> Excel Data Processing, Pearson Correlation Analysis ($r = -0.748$)</li>
-                            <li><span class="text-white font-bold">Tools & Cloud:</span> Git, GitHub, GitHub Pages (HTTPS Live Deployment)</li>
-                        </ul>
-                    `;
-                    break;
-
-                case 'projects':
-                    responseContainer.innerHTML = `
-                        <p class="text-cyan-400 font-semibold mb-1">Featured BSIT Portfolio Projects:</p>
-                        <div class="space-y-2 text-xs">
-                            <div class="bg-slate-800/60 p-2 rounded border border-slate-700/50">
-                                <span class="text-emerald-400 font-bold">[Project 1]</span> <span class="text-white font-semibold">Industry-Ready Personal Portfolio Website</span>
-                                <p class="text-slate-400">Responsive single-page web app with red/blue ambient glow theme, CLI terminal simulator, and HTTPS GitHub Pages hosting.</p>
-                            </div>
-                            <div class="bg-slate-800/60 p-2 rounded border border-slate-700/50">
-                                <span class="text-emerald-400 font-bold">[Project 2]</span> <span class="text-white font-semibold">IT Helpdesk Ticketing System Dashboard</span>
-                                <p class="text-slate-400">Operational analytics dashboard tracking resolution times, SLA compliance, and support ticket bottleneck management.</p>
-                            </div>
-                            <div class="bg-slate-800/60 p-2 rounded border border-slate-700/50">
-                                <span class="text-emerald-400 font-bold">[Project 3]</span> <span class="text-white font-semibold">Campus Wi-Fi RSSI & Pearson Correlation Analytics</span>
-                                <p class="text-slate-400">Empirical correlation analysis ($r = -0.748$) measuring signal degradation across 50 campus access point locations.</p>
-                            </div>
-                        </div>
-                    `;
-                    break;
-
-                case 'sysinfo':
-                    responseContainer.innerHTML = `
-                        <div class="font-mono text-xs bg-slate-900/80 p-3 rounded border border-slate-700 space-y-1">
-                            <p><span class="text-slate-400">Host System:</span> <span class="text-cyan-300 font-bold">BIANCA-MSI-LAPTOP</span></p>
-                            <p><span class="text-slate-400">OS Platform:</span> Windows 11 Home 64-bit</p>
-                            <p><span class="text-slate-400">Hardware Model:</span> MSI Laptop Series</p>
-                            <p><span class="text-slate-400">Recent Troubleshooting Milestone:</span></p>
-                            <p class="text-emerald-400 pl-3">✓ Resolved persistent installation reboot loop via Registry Editor (<code class="text-yellow-300">regedit</code>)</p>
-                            <p class="text-emerald-400 pl-3">✓ Updated execution flag under <code class="text-yellow-300">HKLM\\SYSTEM\\Setup\\Status\\ChildCompletion</code> (Value: 3)</p>
-                        </div>
-                    `;
-                    break;
-
-                case 'contact':
-                    responseContainer.innerHTML = `
-                        <p class="text-slate-300 mb-1">Professional Contact Channels:</p>
-                        <div class="space-y-1 text-xs">
-                            <p>📧 <span class="text-slate-400">Email:</span> <a href="mailto:biancanicole.sore@gmail.com" class="text-cyan-400 underline hover:text-cyan-300">biancanicole.sore@gmail.com</a></p>
-                            <p>💼 <span class="text-slate-400">LinkedIn:</span> <a href="https://linkedin.com" target="_blank" class="text-[#0a66c2] underline hover:text-blue-400">linkedin.com/in/bianca-nicole</a></p>
-                            <p>🐙 <span class="text-slate-400">GitHub:</span> <a href="https://github.com" target="_blank" class="text-purple-400 underline hover:text-purple-300">github.com/bianca-nicole</a></p>
-                        </div>
-                    `;
-                    break;
-
-                case 'date':
-                case 'time':
-                    const now = new Date();
-                    responseContainer.innerHTML = `
-                        <p class="text-cyan-300">Current Local Timestamp: <span class="text-white font-bold">${now.toString()}</span></p>
-                    `;
-                    break;
-
-                case 'clear':
-                case 'cls':
-                    terminalOutput.innerHTML = '';
-                    scrollToBottom();
-                    return;
-
-                case 'matrix':
-                    responseContainer.innerHTML = `
-                        <div class="text-emerald-400 font-mono text-xs leading-tight animate-pulse my-1">
-                            01000010 01001001 01000001 01001110 01000011 01000001 <br>
-                            10110010 01101001 01110100 00100000 01110011 01101011 <br>
-                            01010011 01011001 01010011 01010100 01000101 01001101 <br>
-                            <span class="text-white font-bold">>>> MATRIX STREAM INITIALIZED: BSIT GRADUATE READY <<<</span>
-                        </div>
-                    `;
-                    break;
-
-                default:
-                    responseContainer.innerHTML = `
-                        <p class="text-red-400">Command not found: <span class="text-slate-200">'${escapeHtml(rawInput)}'</span></p>
-                        <p class="text-slate-500 text-xs mt-0.5">Type <span class="text-yellow-300 font-bold">'help'</span> to view all valid interactive commands.</p>
-                    `;
-                    break;
-            }
-
-            terminalOutput.appendChild(responseContainer);
-            scrollToBottom();
-        }
-
-        // Helper function to prevent HTML injection in terminal input
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.innerText = text;
-            return div.innerHTML;
-        }
-    </script>
+</section>
 
 <!-- PROJECTS -->
 <section id="projects" class="section">
@@ -684,11 +316,13 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 <p style="color:#555;line-height:1.6;margin-bottom:12px">A single-page professional portfolio website featuring responsive design, red and blue accent themes, and hosted on GitHub Pages.</p>
 <span style="font-size:0.85rem;background:#e9ecef;padding:4px 8px;border-radius:4px;font-weight:600">HTML / CSS / GitHub Pages</span>
 </div>
+
 <div class="glow-card">
 <h3 style="color:#0a66c2;margin-bottom:10px">Student Management System</h3>
 <p style="color:#555;line-height:1.6;margin-bottom:12px">A web-based system for managing student records, tracking coursework, and executing standard CRUD operations on database structures.</p>
 <span style="font-size:0.85rem;background:#e9ecef;padding:4px 8px;border-radius:4px;font-weight:600">HTML / CSS / JS / Database</span>
 </div>
+
 <div class="glow-card">
 <h3 style="color:#0a66c2;margin-bottom:10px">IT Service Center Performance Analysis</h3>
 <p style="color:#555;line-height:1.6;margin-bottom:12px">Data-driven evaluation of 50 IT ticket requests assessing service efficiency, technician productivity, and user satisfaction.</p>
@@ -696,6 +330,7 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 <br>
 <a href="project2-dashboard.html" target="_blank" class="btn btn-outline" style="display:inline-block">View Project 2 Dashboard 📊</a>
 </div>
+
 <div class="glow-card">
 <h3 style="color:#198754;margin-bottom:10px">Campus WiFi Performance Analysis</h3>
 <p style="color:#555;line-height:1.6;margin-bottom:12px">A data analytics specialization project evaluating 50 campus WiFi records, location bottlenecks, and correlation analysis (r = -0.748).</p>
@@ -721,9 +356,9 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 <button class="cmd-btn" onclick="runCmd('ipconfig')">Run ipconfig /all</button>
 <button class="cmd-btn" onclick="runCmd('flushdns')">Run ipconfig /flushdns</button>
 </div>
-<div class="terminal-window">
+<div class="terminal-window" style="margin-top:10px;">
 <div class="terminal-header">Command Prompt — [Version 10.0.22631]</div>
-<div id="term-output" class="term-output">C:\Users\BiancaNicole> Select a command above to test network connectivity...</div>
+<div id="term-output" class="term-output" style="padding:12px;">C:\Users\BiancaNicole> Select a command above to test network connectivity...</div>
 </div>
 </div>
 
@@ -756,7 +391,7 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 <h2>Problem-Solving Portfolio</h2>
 <p class="section-intro">Real-world IT troubleshooting cases, system diagnostics, and root-cause analytics.</p>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="glow-card">
 <h3 style="color:#dc3545;margin-bottom:10px">Case 1: Windows Setup Error Loop Resolution via Registry Editor</h3>
 <p style="color:#555;line-height:1.6">
 <strong>Problem:</strong> Encountered a persistent setup error loop (<em>"Windows could not complete the installation"</em>) during a clean Windows 11 OS reinstallation on an MSI laptop.<br>
@@ -767,7 +402,7 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 </p>
 </div>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="glow-card">
 <h3 style="color:#0a66c2;margin-bottom:10px">Case 2: Local DNS Cache Corruption & Web Connectivity Failure</h3>
 <p style="color:#555;line-height:1.6">
 <strong>Problem:</strong> Web browser failing to load live GitHub Pages deployments despite an active Wi-Fi connection.<br>
@@ -778,7 +413,7 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 </p>
 </div>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="glow-card">
 <h3 style="color:#198754;margin-bottom:10px">Case 3: Mitigating High Network Downtime Bottlenecks in Campus Wi-Fi</h3>
 <p style="color:#555;line-height:1.6">
 <strong>Problem:</strong> Low user satisfaction ratings and frequent connection drops reported at the Campus Student Center.<br>
@@ -789,7 +424,7 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 </p>
 </div>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="glow-card">
 <h3 style="color:#6f42c1;margin-bottom:10px">Case 4: Optimizing Resolution Delays in IT Service Center Tickets</h3>
 <p style="color:#555;line-height:1.6">
 <strong>Problem:</strong> Growing ticket backlog and extended resolution times in the IT Support Service Center.<br>
@@ -800,7 +435,7 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 </p>
 </div>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="glow-card">
 <h3 style="color:#dc3545;margin-bottom:10px">Case 5: Troubleshooting Relative Links & Script Execution on GitHub Pages</h3>
 <p style="color:#555;line-height:1.6">
 <strong>Problem:</strong> Project dashboards failing to load (404 Error) when clicking cards in the main portfolio, and interactive CLI buttons unresponsive.<br>
@@ -810,7 +445,6 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
 <strong>Lesson Learned:</strong> Consistent repository file structures and verified script paths are crucial for seamless multi-page web deployments.
 </p>
 </div>
-
 </section>
 
 <!-- CYBERSECURITY CASE STUDY -->
@@ -864,7 +498,7 @@ It assisted in structuring my HTML/CSS layout (red/blue ambient glow styling), f
 
 <p style="margin-bottom:10px;">
 <strong>• What did I personally verify?</strong><br>
-I verified that the 50 campus Wi-Fi records and correlation value ($r = -0.748$) matched my dataset, updated the terminal hostname to my laptop (<code>BIANCA-MSI-LAPTOP</code>), and tested all live GitHub Pages links.
+I verified that the 50 campus Wi-Fi records and correlation value (r = -0.748) matched my dataset, updated the terminal hostname to my laptop (<code>BIANCA-MSI-LAPTOP</code>), and tested all live GitHub Pages links.
 </p>
 
 <p style="margin-bottom:10px;">
@@ -906,9 +540,21 @@ AI occasionally generated broken relative file paths (404 errors) and generic pl
 <h2>Employability & Achievements</h2>
 <p class="section-intro">Professional readiness assets, career materials, and certificate evidence.</p>
 
-<div class="glow-card" style="margin-bottom:20px;">
+<div class="glow-card">
 <h3 style="color:#0a66c2;margin-bottom:10px">Career & Profile Assets</h3>
 <p style="color:#555;line-height:1.6">• 1-Page Professional Resume (PDF)<br>• Verified LinkedIn Student Profile<br>• Public GitHub Technical Evidence Repository</p>
+</div>
+
+<!-- MOCK INTERVIEW VIDEO -->
+<div class="glow-card">
+  <h3 style="font-size: 18px; margin-bottom: 6px; color: #1a1a1a;">🎥 Mock Interview - Bianca Nicole Sore</h3>
+  <p style="font-size: 14px; color: #555555; margin-bottom: 12px;">
+    Recorded BSIT mock interview session demonstrating technical communication skills, problem-solving mindset, and career readiness.
+  </p>
+  <video controls style="width: 100%; max-height: 400px; border-radius: 6px; background-color: #000000;">
+    <source src="bianca_sore_mock_interview.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </div>
 
 <!-- CERTIFICATES GALLERY -->
@@ -946,66 +592,55 @@ AI occasionally generated broken relative file paths (404 errors) and generic pl
 </div>
 </section>
 
-<div class="employability-video-card" style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #ffffff;">
-  <h3 style="font-size: 18px; margin-bottom: 6px; color: #1a1a1a;">🎥 Mock Interview - Bianca Nicole Sore</h3>
-  <p style="font-size: 14px; color: #555555; margin-bottom: 12px;">
-    Recorded BSIT mock interview session demonstrating technical communication skills, problem-solving mindset, and career readiness.
-  </p>
-
-  <video controls style="width: 100%; max-height: 400px; border-radius: 6px; background-color: #000000;">
-    <source src="bianca_sore_mock_interview.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
-
-<!-- FINAL REFLECTION (REPLACED & UPDATED) -->
+<!-- FINAL REFLECTION -->
 <section id="reflection" class="section">
 <h2>Final Reflection</h2>
 <p class="section-intro">Personal reflection on academic growth, core learnings, key projects, and technical challenges.</p>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="grid-2">
+<div class="glow-card">
 <h3 style="color:#dc3545;margin-bottom:8px">1. What did I know about IT before entering BSIT?</h3>
 <p style="color:#555;line-height:1.6;font-size:0.95rem;">
 Before entering the BSIT program at Datamex College of Saint Adeline, my knowledge of IT was limited to basic computer use, internet browsing, and standard software navigation. I did not fully understand how websites were built using code, how networks allowed devices to communicate, or how databases managed digital information behind the scenes.
 </p>
 </div>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="glow-card">
 <h3 style="color:#0a66c2;margin-bottom:8px">2. What were the most important things I learned?</h3>
 <p style="color:#555;line-height:1.6;font-size:0.95rem;">
 Throughout my BSIT journey, the most important skills I developed were front-end web development using HTML5 and CSS3, wireframing in Figma, and practical troubleshooting. I learned how to turn wireframes into responsive web applications, debug network errors using Command Prompt tools, and analyze system data to solve technical problems logically.
 </p>
 </div>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="glow-card">
 <h3 style="color:#198754;margin-bottom:8px">3. Which project taught me the most and why?</h3>
 <p style="color:#555;line-height:1.6;font-size:0.95rem;">
 Building my Industry-Ready Personal Portfolio Website taught me the most because it required combining all my technical skills into one live project. I had to design responsive layouts, link my Project 2 and Project 3 analytics dashboards, write custom JavaScript for interactive terminal commands, and deploy everything via GitHub Pages with active HTTPS security.
 </p>
 </div>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="glow-card">
 <h3 style="color:#6f42c1;margin-bottom:8px">4. What technical difficulty challenged me most?</h3>
 <p style="color:#555;line-height:1.6;font-size:0.95rem;">
 The technical difficulty that challenged me most was resolving a persistent setup loop during a clean Windows 11 installation on my MSI laptop. I had to use Command Prompt at setup to launch the Windows Registry Editor (<code>regedit</code>) and manually modify execution flags under <code>ChildCompletion</code> to clear the boot error and complete the OS setup successfully.
 </p>
 </div>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="glow-card">
 <h3 style="color:#dc3545;margin-bottom:8px">5. How have my IT skills changed?</h3>
 <p style="color:#555;line-height:1.6;font-size:0.95rem;">
 My IT skills evolved from basic computer knowledge into practical, hands-on capabilities. I progressed from writing simple HTML/CSS pages to building responsive portfolio applications, wireframing UI/UX in Figma, running CLI network diagnostics, analyzing service datasets, and resolving operating system boot errors.
 </p>
 </div>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="glow-card">
 <h3 style="color:#0a66c2;margin-bottom:8px">6. What skills do I still need to improve?</h3>
 <p style="color:#555;line-height:1.6;font-size:0.95rem;">
 I still need to strengthen my proficiency in modern JavaScript frameworks like React.js, deepen my knowledge of backend RESTful APIs, and improve database security practices. I also want to continue refining responsive web layout designs and optimizing website loading performance.
 </p>
 </div>
 
-<div class="glow-card" style="margin-bottom:15px;">
+<div class="glow-card">
 <h3 style="color:#198754;margin-bottom:8px">7. What kind of IT professional do I want to become?</h3>
 <p style="color:#555;line-height:1.6;font-size:0.95rem;">
 I want to become a detail-oriented, adaptable, and security-conscious Front-End Web Developer and UI/UX Designer. My goal is to build clean, user-friendly, and accessible digital applications while continually updating my skills with industry best practices.
@@ -1018,70 +653,30 @@ I want to become a detail-oriented, adaptable, and security-conscious Front-End 
 I am ready because my BSIT training has equipped me with fundamental technical skills, real-world project experience, and systematic problem-solving methods. My live deployed portfolio, interactive dashboards, and hands-on troubleshooting show that I can contribute effectively to professional IT teams.
 </p>
 </div>
+</div>
 </section>
 
 <!-- TROUBLESHOOTING CASE & AI LOG SECTION -->
 <section id="case-and-ai-log" class="section">
   <h2>Troubleshooting Case & AI Usage Log</h2>
 
-  <style>
-    .case-card {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 18px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      border-left: 4px solid #dc3545;
-    }
-    .case-card h3 { color: #333; margin-bottom: 12px; font-size: 1.1rem; }
-    .case-card p { color: #555; line-height: 1.6; font-size: 0.9rem; margin-bottom: 8px; }
-    .case-card ol { margin-left: 20px; color: #555; font-size: 0.9rem; }
-    
-    .ai-table-container {
-      width: 100%;
-      overflow-x: auto;
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .ai-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      text-align: left;
-    }
-    .ai-table th {
-      background-color: #f8f9fa;
-      color: #333;
-      padding: 12px 14px;
-      border-bottom: 2px solid #e2e8f0;
-    }
-    .ai-table td {
-      padding: 12px 14px;
-      border-bottom: 1px solid #edf2f7;
-      color: #555;
-    }
-  </style>
-
-  <!-- TROUBLESHOOTING CASE -->
-  <div class="case-card">
+  <div class="glow-card" style="border-left: 4px solid #dc3545;">
     <h3>🛠️ Troubleshooting Case #01: Windows 11 Installation Loop</h3>
-    <p><strong>Problem:</strong> Persistent setup error loop during clean Windows 11 OS reinstallation on an MSI laptop.</p>
-    <p><strong>Possible Causes:</strong> Corrupted execution state flags under the Windows Registry configuration during setup.</p>
-    <p><strong>Diagnostic Procedure:</strong></p>
-    <ol>
+    <p style="color:#555; margin-bottom: 8px;"><strong>Problem:</strong> Persistent setup error loop during clean Windows 11 OS reinstallation on an MSI laptop.</p>
+    <p style="color:#555; margin-bottom: 8px;"><strong>Possible Causes:</strong> Corrupted execution state flags under the Windows Registry configuration during setup.</p>
+    <p style="color:#555; margin-bottom: 8px;"><strong>Diagnostic Procedure:</strong></p>
+    <ol style="margin-left: 20px; color: #555; margin-bottom: 8px;">
       <li>Opened Command Prompt during setup using <code>Shift + F10</code>.</li>
       <li>Launched Registry Editor by typing <code>regedit</code>.</li>
       <li>Navigated to <code>HKLM\SYSTEM\Setup\Status\ChildCompletion</code>.</li>
       <li>Identified <code>setup.exe</code> DWORD value improperly set to <code>1</code>.</li>
     </ol>
-    <p><strong>Solution:</strong> Modified <code>setup.exe</code> DWORD value to <code>3</code> and restarted via CLI using <code>shutdown /r /t 0</code>.</p>
-    <p><strong>Lesson Learned:</strong> Understanding low-level registry keys and CLI tools is essential for resolving system boot errors independently.</p>
+    <p style="color:#555; margin-bottom: 8px;"><strong>Solution:</strong> Modified <code>setup.exe</code> DWORD value to <code>3</code> and restarted via CLI using <code>shutdown /r /t 0</code>.</p>
+    <p style="color:#555;"><strong>Lesson Learned:</strong> Understanding low-level registry keys and CLI tools is essential for resolving system boot errors independently.</p>
   </div>
 
-  <!-- AI USAGE LOG TEMPLATE -->
-  <h3>🤖 AI Usage Log</h3>
-  <div class="ai-table-container">
+  <h3 style="margin-top: 15px; margin-bottom: 10px;">🤖 AI Usage Log</h3>
+  <div class="table-container">
     <table class="ai-table">
       <thead>
         <tr>
@@ -1144,35 +739,6 @@ I am ready because my BSIT training has equipped me with fundamental technical s
   <h2>Final Portfolio Checklist</h2>
   <p class="section-intro">Verification checklist confirming all technical, academic, and project requirements are met.</p>
 
-  <style>
-    .checklist-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 12px;
-      margin-top: 15px;
-    }
-    .checklist-item {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 12px 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      border-left: 4px solid #198754;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .checklist-item span.icon {
-      color: #198754;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-    .checklist-item span.text {
-      color: #333;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-  </style>
-
   <div class="checklist-grid">
     <div class="checklist-item"><span class="icon">☑</span><span class="text">Professional email</span></div>
     <div class="checklist-item"><span class="icon">☑</span><span class="text">Professional photograph</span></div>
@@ -1214,7 +780,7 @@ I am ready because my BSIT training has equipped me with fundamental technical s
   &copy; 2026 Bianca Nicole Sore &bull; BSIT Industry-Ready Portfolio
 </footer>
 
-<!-- JAVASCRIPT FOR CLI TERMINAL SIMULATION -->
+<!-- SCRIPTS FOR NETWORK DEMO AND TERMINAL -->
 <script>
 function runCmd(cmd) {
   const output = document.getElementById('term-output');
@@ -1226,7 +792,98 @@ function runCmd(cmd) {
     output.innerText = "C:\\Users\\BiancaNicole> ipconfig /flushdns\n\nWindows IP Configuration\n\nSuccessfully flushed the DNS Resolver Cache.\nSTATUS: DNS Cache cleared. Ready for fresh resolution.";
   }
 }
-</script>
 
+// CLI Terminal Simulator Script
+const terminalOutput = document.getElementById('terminal-output');
+const terminalInput = document.getElementById('terminal-input');
+const terminalBody = document.getElementById('terminal-body');
+
+function focusTerminalInput() {
+    terminalInput.focus();
+}
+
+function scrollToBottom() {
+    terminalBody.scrollTop = terminalBody.scrollHeight;
+}
+
+function runQuickCommand(cmd) {
+    terminalInput.value = cmd;
+    processCommand(cmd);
+    terminalInput.value = '';
+    focusTerminalInput();
+}
+
+terminalInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        const command = this.value.trim();
+        processCommand(command);
+        this.value = '';
+    }
+});
+
+function processCommand(rawInput) {
+    const input = rawInput.trim();
+    const lowerCmd = input.toLowerCase();
+
+    const commandLine = document.createElement('div');
+    commandLine.style.margin = '4px 0';
+    commandLine.innerHTML = `<span style="color:#4ade80;">bianca@BIANCA-MSI-LAPTOP:~$</span> <span>${escapeHtml(rawInput)}</span>`;
+    terminalOutput.appendChild(commandLine);
+
+    if (input === '') {
+        scrollToBottom();
+        return;
+    }
+
+    const responseContainer = document.createElement('div');
+    responseContainer.style.margin = '4px 0 12px 0';
+    responseContainer.style.color = '#cbd5e1';
+
+    switch(lowerCmd) {
+        case 'help':
+            responseContainer.innerHTML = `
+                <p style="color:#fde047; font-weight:bold;">Available Commands:</p>
+                <p><strong style="color:#38bdf8;">whoami</strong> - Display developer profile</p>
+                <p><strong style="color:#38bdf8;">skills</strong> - List technical skills</p>
+                <p><strong style="color:#38bdf8;">projects</strong> - View portfolio project list</p>
+                <p><strong style="color:#38bdf8;">sysinfo</strong> - Display MSI laptop diagnostics</p>
+                <p><strong style="color:#38bdf8;">contact</strong> - Show contact details</p>
+                <p><strong style="color:#38bdf8;">clear</strong> - Clear terminal output</p>
+            `;
+            break;
+        case 'whoami':
+            responseContainer.innerHTML = `<p><strong>Bianca Nicole Sore</strong> - BSIT Student at Datamex College of Saint Adeline (Front-End Web Dev & UI/UX)</p>`;
+            break;
+        case 'skills':
+            responseContainer.innerHTML = `<p>HTML5, CSS3, JavaScript, Figma UI/UX, Git/GitHub, CLI Diagnostics, Pearson Correlation Analysis.</p>`;
+            break;
+        case 'projects':
+            responseContainer.innerHTML = `<p>1. Industry-Ready Portfolio<br>2. IT Helpdesk Ticketing Dashboard<br>3. Campus Wi-Fi Analytics Dashboard</p>`;
+            break;
+        case 'sysinfo':
+            responseContainer.innerHTML = `<p>Host: BIANCA-MSI-LAPTOP | OS: Windows 11 Home | Status: ChildCompletion Registry Error Resolved (Value: 3)</p>`;
+            break;
+        case 'contact':
+            responseContainer.innerHTML = `<p>Email: biancanicole.sore@gmail.com | LinkedIn: linkedin.com | GitHub: github.com</p>`;
+            break;
+        case 'clear':
+            terminalOutput.innerHTML = '';
+            scrollToBottom();
+            return;
+        default:
+            responseContainer.innerHTML = `<p style="color:#f87171;">Command not found: '${escapeHtml(rawInput)}'. Type 'help' for options.</p>`;
+            break;
+    }
+
+    terminalOutput.appendChild(responseContainer);
+    scrollToBottom();
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.innerText = text;
+    return div.innerHTML;
+}
+</script>
 </body>
 </html>
