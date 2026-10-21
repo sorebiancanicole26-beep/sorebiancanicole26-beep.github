@@ -348,7 +348,10 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
   <style>
     /* SMSD Embedded Unique Namespace Styles */
     .smsd-wrapper {
-      background-color: #0f172a;
+      /* Dito inilagay ang background image na may dark overlay para nasa ilalim siya ng login box */
+      background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('smsbc.jpg');
+      background-size: cover;
+      background-position: center;
       color: #f8fafc;
       border-radius: 12px;
       border: 1px solid #334155;
@@ -358,10 +361,7 @@ My career goal is to secure a role as a Front-End Web Developer or UI/UX Designe
       margin-top: 15px;
     }
     .smsd-wrapper .card {
-      /* Dito inilagay ang background image na smsbc na may dark overlay para luminaw ang mga letra */
-      background: linear-gradient(rgba(30, 41, 59, 0.88), rgba(30, 41, 59, 0.88)), url('smsbc.jpg');
-      background-size: cover;
-      background-position: center;
+      background-color: #1e293b; /* Solid color para lumitaw nang maayos sa ibabaw ng background image */
       border: 1px solid #334155;
       border-radius: 12px;
       padding: 30px;
